@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import InputMask from "react-input-mask";
+import * as firebase from 'firebase';
 
 function AddEmployee(){
 
@@ -16,11 +17,31 @@ function AddEmployee(){
     const [phoneNumber, setPhoneNumber] = useState("");
     const [dob, setDob] = useState("");
     const [status, setStatus] = useState("active")
+    const [error, setError] = useState()
 
     function addEmployeeFunction(e){
         e.preventDefault();
-        console.log(name);
-        setName("");
+        if(social1 !== social2){
+            return setError(<div><p>Socials do not match please try again</p></div>)
+        } else if(hireDate === ""){
+            setError("Check hire date!")
+        } else if(personalEmail === ""){
+            setError("Please check Personal Email")
+        } else if(workEmail === ""){
+            setWorkEmail("none@none.com")
+        } else if(address === ""){
+            setError("Please check address")
+        } else if(state === ""){
+            setError("Please check state")
+        } else if(zip === ""){
+            setError("Please check Zip Code")
+        } else if(phoneNumber === ""){
+            setError("Please Check Phone Number")
+        } else if(dob === ""){
+            setError("Please Check Birthday")
+        } else {
+            console.log("good")
+        }
     }
 
     return (
@@ -85,6 +106,7 @@ function AddEmployee(){
                     <option value="inProgress">In Progress</option>
                     <option value="active">Active</option>
                 </select>
+                {error}
                 <button type="submit">Confirm</button>
             </form>
         </div>
