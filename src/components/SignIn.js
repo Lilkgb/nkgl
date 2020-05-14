@@ -10,10 +10,6 @@ function SignIn(){
     let _password = null;
     let signUpForm = null;
 
-    function signOut(){
-        firebase.auth().signOut();
-    }
-
     function signInFunction(e){
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(_email.value, _password.value).then(function(user) {
@@ -45,7 +41,6 @@ function SignIn(){
     return(
         <div className="signIn">
             {signUpForm}
-            <button onClick={signOut}>Log Out</button>
         </div>
     )
 }

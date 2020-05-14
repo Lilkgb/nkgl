@@ -23,14 +23,13 @@ function Home(props){
           type="text"
           value={name}
           onChange={e => setName(e.target.value)}
+          placeholder = "Find Employee"
         />
       <h1>{Object.keys(info).map((employee) => {
         let individual = info[employee];
         let lowercaseName = individual.name.toLowerCase();
         if(lowercaseName.includes(name.toLowerCase())){
         return <div key={employee}><h1>{captialize(lowercaseName)}</h1></div>
-        } else {
-          
         }
       })}</h1>
       <button onClick={testRedux}>Test Reducer Function. Open console to see console log.</button>

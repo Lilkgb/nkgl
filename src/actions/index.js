@@ -1,5 +1,6 @@
 import constants from './../constants';
 import * as firebase from 'firebase';
+import {store} from './../index';
 const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
@@ -10,8 +11,16 @@ export const testFunction = () => ({
 
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
-    console.log("user logged in")
+    store.dispatch(authUserTrue());
   } else {
-    console.log("no user yet")
+    store.dispatch(authUserFalse());
   }
+})
+
+export const authUserTrue = () => ({
+  type: types.AUTH_USER_TRUE
+})
+
+export const authUserFalse = () => ({
+  type: types.AUTH_USER_FALSE
 })
