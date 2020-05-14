@@ -103,6 +103,7 @@ function AddEmployee(){
                 <InputMask mask="99/99/9999" value={dob} onChange={e => setDob(e.target.value)} placeholder="Date of Birth"/>
                 <label for="status">Current Status:</label>
                 <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
+                    <option value="inTraining">In Training</option>
                     <option value="inProgress">In Progress</option>
                     <option value="active">Active</option>
                 </select>
