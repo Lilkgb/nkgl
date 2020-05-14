@@ -12,12 +12,6 @@ function Home(props){
 
   const [info, setDisplay] = useState(employees);
   const [name, setName] = useState("");
-  
-  const handleSubmit = (evt) => {
-      evt.preventDefault();
-      alert(`Submitting Name ${name}`)
-  }
-
 
   function testRedux(){
     store.dispatch(testFunction())
@@ -32,9 +26,9 @@ function Home(props){
         />
       <h1>{Object.keys(info).map((employee) => {
         let individual = info[employee];
-        let lowercase = individual.name.toLowerCase();
-        if(lowercase.includes(name.toLowerCase())){
-        return <h1>{captialize(lowercase)}</h1>
+        let lowercaseName = individual.name.toLowerCase();
+        if(lowercaseName.includes(name.toLowerCase())){
+        return <div key={employee}><h1>{captialize(lowercaseName)}</h1></div>
         } else {
           
         }
