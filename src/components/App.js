@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 import SignIn from './SignIn';
 import Header from './Header';
+import Employees from './Employees';
 
 function App(props) {
 
@@ -17,6 +18,7 @@ function App(props) {
     display = <div><Header />
     <Switch>
       <Route exact path ='/' component={Home}/>
+      <Route path = '/employees' component={Employees} />
       <Route component={Error404}/>
     </Switch></div>
   } else {
