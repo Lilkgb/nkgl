@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import InputMask from "react-input-mask";
 import * as firebase from 'firebase';
+import {v4} from 'uuid';
+import { encode } from 'firebase-functions/lib/providers/https';
 
 function AddEmployee(props){
 
@@ -37,10 +39,21 @@ function AddEmployee(props){
             setError("Please check Zip Code")
         } else if(phoneNumber === ""){
             setError("Please Check Phone Number")
+        } else if(apt === ""){
+            setApt("null")
         } else if(dob === ""){
             setError("Please Check Birthday")
         } else {
-            console.log("good")
+            let employeeId = v4();
+            let checker;
+            firebase.database().ref(`employees/${employeeId}`).on('value', function(snapshot) {
+                checker = snapshot.val();
+              });
+            if(checker === undefined){
+                firebase.database().ref(`employees/${employeeId}`).set({name: name, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, apt: apt, termDate: "null", docs : {docStatus: true}}).catch(error => {
+                    console.log(error)
+                })
+            }
         }
     }
 
@@ -109,8 +122,8 @@ function AddEmployee(props){
                         <option value="inProgress">In Progress</option>
                         <option value="active">Active</option>
                     </select>
-                    {error}
                     <button type="submit">Confirm</button>
+                    {error}
                 </form>
             </div>
         </div>

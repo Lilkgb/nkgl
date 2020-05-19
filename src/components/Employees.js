@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import AddEmployee from './AddEmployee';
 import EmployeeInfo from './EmployeeInfo';
+import {connect} from 'react-redux';
 
-function Employees(){
+function Employees(props){
 
-    let employees = {"jwoiennwe0923n":{name: "Ryan McLean", dob: "5/31/95"}, "oiwe09vj3": {name: "Masood", dob: "5/4/22"}, "wjeifoaj":{name: "Jeff"}, "jwoeifjabwe": {name: "Sarah Do"}};
+    console.log(props)
+    
     let newEmployeeForm;
     let employeeInfo;
 
@@ -38,15 +40,19 @@ function Employees(){
                 onChange={e => setName(e.target.value)}
                 placeholder = "Find Employee"
             />
-            <h1>{Object.keys(employees).map((employee) => {
-                let individual = employees[employee];
+            <h1>{Object.keys(props.allEmployees).map((employee) => {
+                let individual = props.allEmployees[employee];
                 let lowercaseName = individual.name.toLowerCase();
                 if(lowercaseName.includes(name.toLowerCase())){
-                return <div key={employee}><h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1></div>
+                return <div key={employee}><h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1><p></p></div>
                 }
             })}</h1>
         </div>
     )
 }
 
-export default Employees;
+const mapStateToProps = state => ({
+    allEmployees: state.employeesState
+  })
+
+export default connect(mapStateToProps)(Employees);

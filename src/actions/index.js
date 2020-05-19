@@ -12,8 +12,12 @@ export const testFunction = () => ({
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     store.dispatch(authUserTrue());
+    firebase.database().ref('employees').on('value', function(snapshot) {
+      store.dispatch(getAllEmployees(snapshot.val()))
+    })
   } else {
     store.dispatch(authUserFalse());
+    store.dispatch(dumpAllEmployees)
   }
 })
 
@@ -23,4 +27,13 @@ export const authUserTrue = () => ({
 
 export const authUserFalse = () => ({
   type: types.AUTH_USER_FALSE
+})
+
+export const getAllEmployees = (information) => ({
+  type: types.GET_ALL_EMPLOYEES,
+  information
+})
+
+export const dumpAllEmployees = () => ({
+  type: types.DUMP_ALL_EMPLOYEES
 })

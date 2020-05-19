@@ -46,5 +46,16 @@
     background-color: white;
     height: 95vh;
     width: 90vw;
+    button{
+      cursor: pointer;
+    }
   }
+}
+.loader{
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

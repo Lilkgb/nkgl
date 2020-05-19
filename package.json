@@ -10,6 +10,7 @@
     "firebase-admin": "^8.9.0",
     "firebase-functions": "^3.3.0",
     "firebaseui": "^4.5.0",
+    "http2": "^3.3.7",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

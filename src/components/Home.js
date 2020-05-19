@@ -6,7 +6,10 @@ import * as firebase from 'firebase';
 function Home(props){
 
   function testRedux(){
-    store.dispatch(testFunction())
+    let hash = encodeURIComponent(btoa("hello"))
+    console.log(hash)
+    let check = atob(decodeURIComponent(hash))
+    console.log(check)
   }
 
   return(

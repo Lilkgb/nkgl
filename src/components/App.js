@@ -21,11 +21,13 @@ function App(props) {
       <Route path = '/employees' component={Employees} />
       <Route component={Error404}/>
     </Switch></div>
-  } else {
+  } else if (props.authUser === false) {
     display = <div><Switch>
     <Route exact path ='/' component={SignIn}/>
     <Route component={Error404}/>
   </Switch></div>
+  } else {
+    display = <div className="loader"><img src={require('../assets/images/loading.gif')}/></div>
   }
 
   return (
