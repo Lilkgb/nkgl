@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../scss/Employees.scss';
 import AddEmployee from './AddEmployee';
 import EmployeeInfo from './EmployeeInfo';
 
