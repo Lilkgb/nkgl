@@ -5,13 +5,12 @@ import {connect} from 'react-redux';
 
 function Employees(props){
 
-    console.log(props)
-    
     let newEmployeeForm;
     let employeeInfo;
 
-    const captialize = words => words.split(' ').map( w =>  w.substring(0,1).toUpperCase()+ w.substring(1)).join(' ')
+    const captialize = words => words.split(' ').map( w =>  w.substring(0,1).toUpperCase()+ w.substring(1)).join(' ');
 
+    const [status, setStatus] = useState("all");
     const [name, setName] = useState("");
     const [addNewEmployee, setNewEmployee] = useState(false)
     const [employeeInfoComponent, setEmployeeInfoComponent] = useState({state: false, currentEmployee: null});
@@ -28,6 +27,25 @@ function Employees(props){
         employeeInfo = <EmployeeInfo closeEmployeeInfoComponent={() => setEmployeeInfoComponent({state: false, currentEmployee: null})} currentEmployee={employeeInfoComponent.currentEmployee}/>
     }
 
+    let displayEmployees;
+
+    if(props.allEmployees){
+        displayEmployees = Object.keys(props.allEmployees).map((employee) => {
+            let individual = props.allEmployees[employee];
+            let lowercaseName = individual.name.toLowerCase();
+            let normalReturn = <div key={employee}><h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1><p>{individual.status}</p></div>;
+            if(lowercaseName.includes(name.toLowerCase())){
+                if(status === "all"){
+                    return normalReturn
+                } else if(lowercaseName.includes(name.toLowerCase()) && individual.status === status){
+                    return normalReturn
+                }
+            }
+        })
+    } else {
+        displayEmployees = <h1>Loading...</h1>
+    }
+
     return(
         <div className='emContainer'>
             {newEmployeeForm}
@@ -40,13 +58,14 @@ function Employees(props){
                 onChange={e => setName(e.target.value)}
                 placeholder = "Find Employee"
             />
-            <h1>{Object.keys(props.allEmployees).map((employee) => {
-                let individual = props.allEmployees[employee];
-                let lowercaseName = individual.name.toLowerCase();
-                if(lowercaseName.includes(name.toLowerCase())){
-                return <div key={employee}><h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1><p></p></div>
-                }
-            })}</h1>
+            <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
+                <option value="all">All</option>
+                <option value="Active">Active</option>
+                <option value="In Progress">In Progress</option>
+                <option value="In Training">In Training</option>
+                <option value="Term/Fired">Terminated/Fired</option>
+            </select>
+            {displayEmployees}
         </div>
     )
 }

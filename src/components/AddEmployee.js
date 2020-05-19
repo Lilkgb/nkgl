@@ -18,7 +18,7 @@ function AddEmployee(props){
     const [zip, setZip] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [dob, setDob] = useState("");
-    const [status, setStatus] = useState("active")
+    const [status, setStatus] = useState("Active")
     const [error, setError] = useState()
 
     function addEmployeeFunction(e){
@@ -118,9 +118,9 @@ function AddEmployee(props){
                     <InputMask mask="99/99/9999" value={dob} onChange={e => setDob(e.target.value)} placeholder="Date of Birth"/>
                     <label for="status">Current Status:</label>
                     <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
-                        <option value="inTraining">In Training</option>
-                        <option value="inProgress">In Progress</option>
-                        <option value="active">Active</option>
+                        <option value="In Training">In Training</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Active">Active</option>
                     </select>
                     <button type="submit">Confirm</button>
                     {error}
