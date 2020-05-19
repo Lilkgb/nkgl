@@ -49,7 +49,8 @@ function AddEmployee(props){
             firebase.database().ref(`employees/${employeeId}`).on('value', function(snapshot) {
                 checker = snapshot.val();
               });
-            if(checker === undefined){
+            console.log(checker)
+            if(checker === undefined || checker === null){
                 firebase.database().ref(`employees/${employeeId}`).set({name: name, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, apt: apt, termDate: "null", docs : {docStatus: true}}).catch(error => {
                     console.log(error)
                 })

@@ -63,7 +63,7 @@ function Employees(props){
                 <option value="Active">Active</option>
                 <option value="In Progress">In Progress</option>
                 <option value="In Training">In Training</option>
-                <option value="Term/Fired">Terminated/Fired</option>
+                <option value="Quit/Terminated">Quit/Terminated</option>
             </select>
             {displayEmployees}
         </div>
