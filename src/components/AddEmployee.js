@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import InputMask from "react-input-mask";
 import * as firebase from 'firebase';
 
-function AddEmployee(){
+function AddEmployee(props){
 
     const [name, setName] = useState("");
     const [hireDate, setHireDate] = useState("");
@@ -22,7 +22,7 @@ function AddEmployee(){
     function addEmployeeFunction(e){
         e.preventDefault();
         if(social1 !== social2){
-            return setError(<div><p>Socials do not match please try again</p></div>)
+            return setError("Socials do not match. Please Check!")
         } else if(hireDate === ""){
             setError("Check hire date!")
         } else if(personalEmail === ""){
@@ -46,6 +46,7 @@ function AddEmployee(){
 
     return (
         <div className="addEmContainer">
+            <button onClick={props.closeEmployeeFormComponent}>Close</button>
             <h1>Add new employee</h1>
             <form onSubmit={addEmployeeFunction}>
                 <input 
