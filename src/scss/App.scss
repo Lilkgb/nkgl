@@ -1,4 +1,16 @@
 /* eslint-disable-next-line */
+
+@keyframes pulseBlue {
+  0%{color: cyan};
+  50%{color: black};
+  100%{color: cyan};
+}
+
+@keyframes pulseYellow {
+  0%{color: yellow};
+  50%{color: black};
+  100%{color: yellow};
+}
 .App {
   text-align: center;
 }
@@ -58,4 +70,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.employeeList{
+  display: flex;
+  justify-content: space-between;
+  width: 88vw;
+  align-items: center;
+  margin: auto;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border: 1px solid black;
+  h1{
+    margin: 0;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+.employeeList:nth-child(even){
+  background-color: white;
+}
+.employeeList:nth-child(odd){
+  background-color: lightgrey;
+}
+.emContainer{
+  input{
+    margin-bottom: 20px;
+  }
+  select{
+    height: 20px;
+  }
+}
+
+.Active{
+  color: lime;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 20px;
+}
+.Progress{
+  animation: pulseYellow 1.5s linear infinite;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.Training{
+  animation: pulseBlue 2s linear infinite;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 20px;
 }

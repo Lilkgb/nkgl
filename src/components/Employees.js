@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import AddEmployee from './AddEmployee';
 import EmployeeInfo from './EmployeeInfo';
 import {connect} from 'react-redux';
-import * as firebase from 'firebase';
 
 function Employees(props){
 
@@ -34,7 +33,7 @@ function Employees(props){
         displayEmployees = Object.keys(props.allEmployees).map((employee) => {
             let individual = props.allEmployees[employee];
             let lowercaseName = individual.name.toLowerCase();
-            let normalReturn = <div key={employee}><h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1><p>{individual.status}</p></div>;
+            let normalReturn = <div key={employee} className="employeeList"><h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1><p className={individual.status}>{individual.status}</p></div>;
             if(lowercaseName.includes(name.toLowerCase())){
                 if(status === "all"){
                     return normalReturn

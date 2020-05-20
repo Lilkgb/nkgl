@@ -12,8 +12,6 @@ function App(props) {
 
   let display;
 
-  console.log(props)
-
   if(props.authUser){
     display = <div><Header />
     <Switch>

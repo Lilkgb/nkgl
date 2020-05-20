@@ -49,7 +49,7 @@ function AddEmployee(props){
                 checker = snapshot.val();
               });
             if(checker === undefined || checker === null){
-                firebase.database().ref(`employees/${employeeId}`).set({name: name, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, apt: apt, termDate: "null", docs : {docStatus: true}}).catch(error => {
+                firebase.database().ref(`employees/${employeeId}`).set({name: name, employeeId: employeeId, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, apt: apt, termDate: "null", docs : {docStatus: true}}).catch(error => {
                     console.log(error)
                 })
                 setError("New Employee has been successfully added")
