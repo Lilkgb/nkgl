@@ -53,6 +53,7 @@ function Employees(props){
             <h1>Employees!</h1>
             <h2>Add new employee</h2>
             <input
+                className="findEmployee"
                 type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}

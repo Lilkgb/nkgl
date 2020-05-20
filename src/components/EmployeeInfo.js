@@ -10,18 +10,15 @@ function EmployeeInfo(props){
     return (
         <div className="container">
             <div className="insideContainer">
-                <div>
+                <h1>{employee.name}</h1>
+                <div className="employeeInfoTop">
                     <button>Edit</button>
+                    <h3 className={employee.status}>{employee.status}</h3>
                     <button onClick={props.closeEmployeeInfoComponent}>Close</button>
                 </div>
-                <h1>{employee.name}</h1>
-                <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
-                    <option value="all">All</option>
-                    <option value="Active">Active</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="In Training">In Training</option>
-                    <option value="Quit/Terminated">Quit/Terminated</option>
-                </select>
+                <div>
+                    
+                </div>
             </div>
         </div>
     )

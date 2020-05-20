@@ -56,10 +56,30 @@
   background-color: rgba(0, 0, 0, 0.6);
   .insideContainer{
     background-color: white;
-    height: 95vh;
+    max-height: 95vh;
     width: 90vw;
+    overflow: auto;
+    padding: 10px;
     button{
       cursor: pointer;
+    }
+  }
+  button{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: white;
+    width: auto;
+    font-size: 25px;
+    border: 1px solid black;
+    &:hover{
+      border: 0px solid black;
+      text-decoration: underline;
+      background-color: teal;
+      color: white;
+      transition: .3s linear;
     }
   }
 }
@@ -97,7 +117,7 @@
   background-color: lightgrey;
 }
 .emContainer{
-  input{
+  .findEmployee{
     margin-bottom: 20px;
   }
   select{
@@ -123,4 +143,13 @@
   font-weight: bold;
   text-decoration: underline;
   font-size: 20px;
+}
+
+.employeeInfoTop{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  align-items: center;
 }
