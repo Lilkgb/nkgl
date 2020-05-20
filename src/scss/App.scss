@@ -167,3 +167,19 @@
 .title{
   text-decoration: underline;
 }
+
+.profileImg{
+  height: 150px;
+  width: 150px;
+  border-radius: 150px;
+}
+
+.nameAndImg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    margin-left: -150px;
+    margin-right: 10px;
+  }
+}

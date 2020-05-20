@@ -24,7 +24,10 @@ function EmployeeInfo(props){
     return (
         <div className="container">
             <div className="insideContainer">
-                <h1>{employee.name}</h1>
+                <div className="nameAndImg">
+                    <img className="profileImg" src={employee.profileImg}/>
+                    <h1>{employee.name}</h1>
+                </div>
                 <div className="employeeInfoTop">
                     <button>Edit</button>
                     <h3 className={employee.status}>{employee.status}</h3>
