@@ -153,3 +153,17 @@
   margin-top: 10px;
   align-items: center;
 }
+
+.socialCheck{
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+  &:hover{
+    transition: .3s linear;
+    color: teal;
+  }
+}
+
+.title{
+  text-decoration: underline;
+}
