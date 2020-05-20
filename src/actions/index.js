@@ -12,8 +12,12 @@ export const testFunction = () => ({
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     store.dispatch(authUserTrue());
-    firebase.database().ref('employees').on('value', function(snapshot) {
-      store.dispatch(getAllEmployees(snapshot.val()))
+    firebase.database().ref("employees").orderByChild("name").on('value', function(snapshot) {
+      let list = []
+      snapshot.forEach(function(child){
+        list.push(child.val())
+      })
+      store.dispatch(getAllEmployees(list))
     })
   } else {
     store.dispatch(authUserFalse());

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import AddEmployee from './AddEmployee';
 import EmployeeInfo from './EmployeeInfo';
 import {connect} from 'react-redux';
+import * as firebase from 'firebase';
 
 function Employees(props){
 

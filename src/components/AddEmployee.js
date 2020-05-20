@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import InputMask from "react-input-mask";
 import * as firebase from 'firebase';
 import {v4} from 'uuid';
-import { encode } from 'firebase-functions/lib/providers/https';
 
 function AddEmployee(props){
 
@@ -49,11 +48,13 @@ function AddEmployee(props){
             firebase.database().ref(`employees/${employeeId}`).on('value', function(snapshot) {
                 checker = snapshot.val();
               });
-            console.log(checker)
             if(checker === undefined || checker === null){
                 firebase.database().ref(`employees/${employeeId}`).set({name: name, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, apt: apt, termDate: "null", docs : {docStatus: true}}).catch(error => {
                     console.log(error)
                 })
+                setError("New Employee has been successfully added")
+            } else {
+                setError(`An employee with the current user ID is already assigned. Please click confirm to set new ID.`)
             }
         }
     }
