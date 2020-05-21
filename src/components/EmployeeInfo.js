@@ -4,7 +4,6 @@ import * as firebase from 'firebase';
 
 function EmployeeInfo(props){
 
-    console.log(props)
     let employee = props.currentEmployee;
     let socialDisplay;
     let employeeImageUpload;
@@ -61,15 +60,15 @@ function EmployeeInfo(props){
                 <div>
                     <div>
                         <h3 className="title">Phone Number</h3>
-                        <p>{employee.phoneNumber}</p>
+                        <a href={"tel: " + employee.phoneNumber}>{employee.phoneNumber}</a>
                     </div>
                     <div>
                         <h3 className="title">Personal Email</h3>
-                        <p>{employee.personalEmail}</p>
+                        <a href={"mailto: " + employee.personalEmail}>{employee.personalEmail}</a>
                     </div>
                     <div>
                         <h3 className="title">Work Email</h3>
-                        <p>{employee.workEmail}</p>
+                        <a href={"mailto: " + employee.workEmail}>{employee.workEmail}</a>
                     </div>
                     <div>
                         <h3 className="title">Address</h3>
