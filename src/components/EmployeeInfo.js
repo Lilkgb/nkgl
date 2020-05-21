@@ -1,13 +1,25 @@
 import React, {useState} from 'react';
+import AddEmployeeImage from './AddEmployeeImage';
+import * as firebase from 'firebase';
 
 function EmployeeInfo(props){
 
     console.log(props)
     let employee = props.currentEmployee;
     let socialDisplay;
+    let employeeImageUpload;
     
     const [status, setStatus] = useState(employee.status);
     const [seeSocial, setSeeSocial] = useState(false);
+    const [uploadEmployeeImage, setUploadEmployeeImage] = useState(false);
+    const [img, setImg] = useState(employee.profileImg);
+
+    firebase.database().ref(`employees/${props.currentEmployee.employeeId}`).on("value", (snapshot) => {
+        let info = snapshot.val();
+        if(img !== info.profileImg){
+            setImg(info.profileImg)
+        }
+    })
 
     if(seeSocial){
         socialDisplay = <div>
@@ -21,18 +33,31 @@ function EmployeeInfo(props){
         </div>
     }
 
+    if(uploadEmployeeImage){
+        employeeImageUpload = <AddEmployeeImage employee={employee} closeAddImage={() => setUploadEmployeeImage(false)}/>
+    } else {
+        employeeImageUpload = null;
+    }
+
     return (
         <div className="container">
+            {employeeImageUpload}
             <div className="insideContainer">
-                <div className="nameAndImg">
-                    <img className="profileImg" src={employee.profileImg}/>
-                    <h1>{employee.name}</h1>
-                </div>
                 <div className="employeeInfoTop">
                     <button>Edit</button>
                     <h3 className={employee.status}>{employee.status}</h3>
-                    <button onClick={props.closeEmployeeInfoComponent}>Close</button>
+                    <button className="cancel" onClick={props.closeEmployeeInfoComponent}>Close</button>
                 </div>
+                <div className="nameAndImg">
+                    <div class="profileImg">
+                        <img src={img} alt=""/>
+                        <div className="update">
+                            <p onClick={() => setUploadEmployeeImage(true)}>Update</p>
+                        </div>
+                    </div>
+                    <h1>{employee.name}</h1>
+                </div>
+                <hr />
                 <div>
                     <div>
                         <h3 className="title">Phone Number</h3>

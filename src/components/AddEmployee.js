@@ -62,7 +62,7 @@ function AddEmployee(props){
     return (
         <div className="container">
             <div className="insideContainer">
-                <button onClick={props.closeEmployeeFormComponent}>Close</button>
+                <button onClick={props.closeEmployeeFormComponent} className="cancel">Close</button>
                 <h1>Add new employee</h1>
                 <form onSubmit={addEmployeeFunction}>
                     <input 
