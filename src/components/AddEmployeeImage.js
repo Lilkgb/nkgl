@@ -47,7 +47,7 @@ function AddEmployeeImage(props){
                 type="file"
                 onChange={handleImageAsFile}
                 />
-                <button>Upload Image</button>
+                <button>Upload</button>
             </form>
             <button className="cancel" onClick={() => props.closeAddImage()}>Cancel</button>
             </div>
