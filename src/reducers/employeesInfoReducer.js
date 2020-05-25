@@ -6,7 +6,6 @@ const employeesInfoReducer = (state = employeesState, action) => {
   switch (action.type) {
     case types.GET_ALL_EMPLOYEES:
       newState = state;
-      console.log(action.information)
         newState = action.information;
       return newState;
     case types.DUMP_ALL_EMPLOYEES:
