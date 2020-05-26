@@ -6,8 +6,9 @@ import '../scss/Header.scss';
 function Header(){
 
   let display;
+  let headerDisplay;
   const[active, setActive] = useState("activeHome");
-  const[size, setSize] = useState(null)
+  const[showHide, setShowHide] = useState(false)
 
   function signOut(){
     firebase.auth().signOut();
@@ -41,17 +42,46 @@ function Header(){
     return windowSize;
   }
 
+  if(showHide === false){
+    headerDisplay = {header: "hide", menu: "hide"};
+  } else if(showHide){
+    headerDisplay = {header: "open", menu: "show"};
+  }
+
+  function toggleNav(){
+    if(showHide){
+      setShowHide(false)
+    } else {
+      setShowHide(true)
+    }
+  }
+
   const windowSize = useWindowSize();
   if(windowSize){
     if(windowSize.width >=1001){
       display = <div className="header">
-        {display}
         <NavLink exact to='/' activeClassName="active"><h3>Home</h3></NavLink>
         <NavLink to='/employees' activeClassName="active"><h3>Employees</h3></NavLink>
         <button onClick={signOut}>Log Out</button>
       </div>;
     } else if(windowSize.width < 1001){
-      display = <h1>Small</h1>;
+      display = <div className="headerMbl">
+        <div className="showHide">
+          <div onClick={toggleNav} id="nav-icon2" className={headerDisplay.header}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div className={headerDisplay.menu}>
+          <NavLink exact to='/' activeClassName="active" onClick={() => setShowHide(false)}><h3>Home</h3></NavLink>
+          <NavLink to='/employees' activeClassName="active" onClick={() => setShowHide(false)}><h3>Employees</h3></NavLink>
+          <button onClick={signOut}>Log Out</button>
+        </div>
+    </div>;
     } 
   } else {
     display = <h1>Getting Screen Size.</h1>
