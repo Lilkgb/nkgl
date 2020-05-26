@@ -14,7 +14,7 @@ function Home(props){
 
   return(
     <div>
-      <button onClick={testRedux}>Test Reducer Function. Open console to see console log.</button>
+      <button onClick={testRedux}>Test Reducer Function</button>
     </div>
   )
 }
