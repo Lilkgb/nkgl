@@ -48,7 +48,7 @@ function EmployeeInfo(props){
                     <button className="cancel" onClick={props.closeEmployeeInfoComponent}>Close</button>
                 </div>
                 <div className="nameAndImg">
-                    <div class="profileImg">
+                    <div className="profileImg">
                         <img src={img} alt=""/>
                         <div className="update">
                             <p onClick={() => setUploadEmployeeImage(true)}>Update</p>
