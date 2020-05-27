@@ -8,6 +8,7 @@ function AddVan(props){
     const [retrieveDate, setRetrieveDate] = useState("");
     const [vin, setVin] = useState("");
     const [status, setStatus] = useState("Active")
+    const [rental, setRental] = useState("No")
     const [error, setError] = useState()
 
     function addEmployeeFunction(e){
@@ -23,7 +24,7 @@ function AddVan(props){
                 checker = snapshot.val();
               });
             if(checker === undefined || checker === null){
-                firebase.database().ref(`vanList/${vanId}`).set({name: name, vanId: vanId, retrieveDate: retrieveDate, status: status, termDate: "null", docs : {docStatus: true}}).catch(error => {
+                firebase.database().ref(`vanList/${vanId}`).set({name: name, rental: rental, vanId: vanId, vin: vin, retrieveDate: retrieveDate, status: status, termDate: "null", docs : {docStatus: true}}).catch(error => {
                     console.log(error)
                 })
                 setError("New van has been successfully added")
@@ -61,6 +62,11 @@ function AddVan(props){
                         <option value="Oil Change">Oil Change</option>
                         <option value="Body Shop">Body Shop</option>
                         <option value="Active">Active</option>
+                    </select>
+                    <label for="status">Rental:</label>
+                    <select id="status" value={rental} onChange={e => setRental(e.target.value)}>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                     <button type="submit">Confirm</button>
                     {error}

@@ -8,19 +8,20 @@ import SignIn from './SignIn';
 import Header from './Header';
 import Employees from './Employees';
 import VanList from './VanList';
-import EmployeeInfo from './EmployeeInfo';
+import VanInfo from './VanInfo';
 
 function App(props) {
 
   let display;
 
   if(props.authUser){
-    display = <div><Header />
+    display = <div>
+    <Header />
     <Switch>
       <Route exact path ='/' component={Home}/>
       <Route path = '/employees' component={Employees} />
-      <Route exact path='/employees/:id' component={EmployeeInfo} />
       <Route path = '/vanlist' component={VanList} />
+      <Route path = '/van/:id' component={VanInfo} />
       <Route component={Error404}/>
     </Switch></div>
   } else if (props.authUser === false) {

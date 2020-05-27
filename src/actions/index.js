@@ -19,9 +19,17 @@ firebase.auth().onAuthStateChanged(function(user) {
       })
       store.dispatch(getAllEmployees(list))
     })
+    firebase.database().ref("vanList").orderByChild("name").on('value', function(snapshot) {
+      let list = []
+      snapshot.forEach(function(child){
+        list.push(child.val())
+      })
+      store.dispatch(getAllVans(list))
+    })
   } else {
     store.dispatch(authUserFalse());
-    store.dispatch(dumpAllEmployees)
+    store.dispatch(dumpAllEmployees())
+    store.dispatch(dumpAllVans());
   }
 })
 
@@ -40,4 +48,13 @@ export const getAllEmployees = (information) => ({
 
 export const dumpAllEmployees = () => ({
   type: types.DUMP_ALL_EMPLOYEES
+})
+
+export const getAllVans = (information) => ({
+  type: types.GET_ALL_VANS,
+  information
+})
+
+export const dumpAllVans = () => ({
+  type: types.DUMP_ALL_VANS
 })

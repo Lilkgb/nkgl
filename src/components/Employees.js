@@ -2,14 +2,11 @@ import React, {useState} from 'react';
 import AddEmployee from './AddEmployee';
 import EmployeeInfo from './EmployeeInfo';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
 
 function Employees(props){
 
     let newEmployeeForm;
     let employeeInfo;
-
-    const captialize = words => words.split(' ').map( w =>  w.substring(0,1).toUpperCase()+ w.substring(1)).join(' ');
 
     const [status, setStatus] = useState("all");
     const [name, setName] = useState("");
