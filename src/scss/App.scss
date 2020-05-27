@@ -110,6 +110,13 @@
       text-decoration: underline;
     }
   }
+  a{
+    color: black;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
   @include mQ(775px){
     display: block;
   }

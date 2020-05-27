@@ -29,7 +29,7 @@ function VanList(props){
             let lowercaseName = individual.name.toLowerCase();
             let lowercaseVin = individual.vin.toLowerCase();
             let normalReturn = <div key={van} className="employeeList">
-                <h1><Link to={`/van/${individual.vanId}`}>{individual.name}</Link></h1>
+                <Link to={`/van/${individual.vanId}`}><h1>{individual.name}</h1></Link>
                 <p>{individual.vin}</p>
                 <p className={individual.status}>{individual.status}</p></div>;
             if(search === "name"){
