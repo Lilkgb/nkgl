@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import SignIn from './SignIn';
 import Header from './Header';
 import Employees from './Employees';
+import VanList from './VanList';
+import EmployeeInfo from './EmployeeInfo';
 
 function App(props) {
 
@@ -17,6 +19,8 @@ function App(props) {
     <Switch>
       <Route exact path ='/' component={Home}/>
       <Route path = '/employees' component={Employees} />
+      <Route exact path='/employees/:id' component={EmployeeInfo} />
+      <Route path = '/vanlist' component={VanList} />
       <Route component={Error404}/>
     </Switch></div>
   } else if (props.authUser === false) {
