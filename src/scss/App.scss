@@ -50,8 +50,12 @@
     width: 90vw;
     overflow: auto;
     padding: 10px;
+    z-index: 1;
     button{
       cursor: pointer;
+    }
+    @include mQ(775px){
+      max-height: 80vh;
     }
   }
   button{
@@ -224,7 +228,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.8);
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
