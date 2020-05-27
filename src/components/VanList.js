@@ -78,13 +78,14 @@ function VanList(props){
             <h1>Van List</h1>
             <button onClick={() => setAddVanForm(true)}>Add New Van</button>
             <br/>
+            <br/>
             <label>Search By: </label>
             <select id="status" value={search} onChange={e => setSearch(e.target.value)}>
                 <option value="name">Name</option>
                 <option value="vin">vin</option>
             </select>
             <br/>
-            <label>Search</label>
+            <label>Find: </label>
             {searchInput}
             <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
                 <option value="all">All</option>
