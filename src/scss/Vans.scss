@@ -47,11 +47,8 @@
 }
 
 .damageForm{
-    position: relative;
     .addDamageButton{
-        position: absolute;
-        right: 10px;
-        top: 15px;
+        margin-top: 10px;
         font-size: 20px;
         font-weight: bold;
         cursor: pointer;
@@ -133,18 +130,39 @@ img{
         max-width: 95vw;
         background-color: white;
         padding: 10px;
+        @include mQ(775px){
+            max-height: 80vh;
+            margin-top: -10vh;
+          }
+    }
+    img{
+        max-width: 90vw;
+        max-height: 85vh;
     }
 }
 
 .damageDescription{
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    h1{
+        margin: 0;
+    }
+    @include mQ(775px){
+        display: block;
+      }
 }
+
+.damageDescriptionContainer:nth-child(even){
+    background-color: white;
+  }
+  .damageDescriptionContainer:nth-child(odd){
+    background-color: lightgrey;
+  }
 
 .showMedia{
     cursor: pointer;
     &:hover{
         text-decoration: underline;
-        background-color: red;
+        background-color: teal;
     }
 }

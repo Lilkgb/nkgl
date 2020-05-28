@@ -32,11 +32,20 @@ function VanDamage(props){
             damages = Object.keys(arry).map((damages) => {
                 let damage = arry[damages];
                 if(damage !== true){
-                    return <div>
+                    return <div className="damageDescriptionContainer" key={damages}>
                         <div className="damageDescription">
-                            <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
-                            <h3>{damage.description}</h3>
-                            <p>{damage.type}</p>
+                            <div>
+                                <h1 style={{"text-decoration": "underline"}}>Date:</h1>
+                                <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
+                            </div>
+                            <div>
+                                <h1 style={{"text-decoration": "underline"}}>Description:</h1>
+                                <h3>{damage.description}</h3>
+                            </div>
+                            <div>
+                                <h1 style={{"text-decoration": "underline"}}>File Format:</h1>
+                                <p>{damage.type}</p>
+                            </div>
                         </div>
                         <h3 className="showMedia" onClick={() => setMediaState({state: true, info: damage})}>Show Media</h3>
                     </div>
@@ -59,7 +68,7 @@ function VanDamage(props){
             {damageForm}
             {media}
             <button className="addDamageButton" onClick={() => setAddDamageForm({state: true, info: null})}>Add Damage</button>
-            <h1>Damages</h1>
+            <hr />
             {damages}
         </div>
     )
