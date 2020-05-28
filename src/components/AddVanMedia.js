@@ -11,8 +11,8 @@ function AddVanMedia(props){
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
-    // console.log(imageAsFile)
-    // console.log(imageAsUrl)
+    console.log(imageAsFile.type)
+    console.log(imageAsUrl)
 
     const handleImageAsFile = (e) => {
         const image = e.target.files[0]
@@ -37,7 +37,7 @@ function AddVanMedia(props){
             storage.getDownloadURL()
             .then(fireBaseUrl => {
                 setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
-                firebase.database().ref(`vanList/${props.van.vanId}/damages/${mediaId}`).set({media: fireBaseUrl, date: Date.now(), description: description});
+                firebase.database().ref(`vanList/${props.van.vanId}/damages/${mediaId}`).set({media: fireBaseUrl, type: imageAsFile.type, date: Date.now(), description: description});
                 if(props.van.damages.damagesStatus === false){
                     firebase.database().ref(`vanList/${props.van.vanId}/damages`).update({damagesStatus: true})
                 } 

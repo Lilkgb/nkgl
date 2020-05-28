@@ -16,11 +16,21 @@ function VanDamage(props){
             damages = Object.keys(props.van.damages).map((damages) => {
                 let damage = props.van.damages[damages];
                 if(damage !== true){
-                    return <div key={damages}>
-                        <img src={damage.media}/>
-                        <h3>Date: {moment(damage.date).format("MMM Do YYYY")}</h3>
-                        <p>{damage.description}</p>
-                    </div>
+                    if(damage.type.includes("video")){
+                        return <div key={damages}>
+                            <h3>Date: {moment(damage.date).format("MMM Do YYYY")}</h3>
+                            <p>{damage.description}</p>
+                            <video width="100%" height="500" controls >
+                            <source src={damage.media} type="video/mp4"/>
+                            </video>
+                        </div>
+                    } else{
+                        return <div key={damages}>
+                            <img src={damage.media}/>
+                            <h3>Date: {moment(damage.date).format("MMM Do YYYY")}</h3>
+                            <p>{damage.description}</p>
+                        </div>
+                    }
                 }
             })
         } else {
@@ -40,9 +50,6 @@ function VanDamage(props){
             {damageForm}
             <button className="addDamageButton" onClick={() => setAddDamageForm({state: true, info: null})}>Add Damage</button>
             <h1>Damages</h1>
-            <video width="100%" height="500" controls >
-            <source src="https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/7217dc93-8577-4199-8509-62e2c2ca9fdc%2Ftrim.658C2F71-4F62-4AFC-A9AC-3123BA4906B7.MOV?alt=media&token=dfd136e8-9a94-41c8-8034-9772e9cf4910" type="video/mp4"/>
-            </video>
             {damages}
         </div>
     )
