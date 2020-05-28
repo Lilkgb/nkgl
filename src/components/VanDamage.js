@@ -13,7 +13,16 @@ function VanDamage(props){
 
     if(props.van.damages){
         if(props.van.damages.damagesStatus){
-            damages = <h1>Found some Damage</h1>
+            damages = Object.keys(props.van.damages).map((damages) => {
+                let damage = props.van.damages[damages];
+                if(damage !== true){
+                    return <div key={damages}>
+                        <img src={damage.media}/>
+                        <h3>Date: {moment(damage.date).format("MMM Do YYYY")}</h3>
+                        <p>{damage.description}</p>
+                    </div>
+                }
+            })
         } else {
             damages = <h1>No Damage have been reported yet.</h1>
         }

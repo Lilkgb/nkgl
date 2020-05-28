@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import * as firebase from 'firebase';
+import {v4} from 'uuid';
 
 function AddVanMedia(props){
 
@@ -20,7 +21,8 @@ function AddVanMedia(props){
 
     const handleFireBaseUpload = e => {
         e.preventDefault()
-        let storage = firebase.storage().ref(`${props.employee.employeeId}/${imageAsFile.name}`)
+        let mediaId = v4();
+        let storage = firebase.storage().ref(`${props.van.vanId}/${imageAsFile.name}`)
         console.log('start of upload')
         if(imageAsFile === '') {
             console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
@@ -35,8 +37,11 @@ function AddVanMedia(props){
             storage.getDownloadURL()
             .then(fireBaseUrl => {
                 setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
-                firebase.database().ref(`employees/${props.employee.employeeId}/profileImg`).set(fireBaseUrl)
-                props.closeAddImage();
+                firebase.database().ref(`vanList/${props.van.vanId}/damages/${mediaId}`).set({media: fireBaseUrl, date: Date.now(), description: description});
+                if(props.van.damages.damagesStatus === false){
+                    firebase.database().ref(`vanList/${props.van.vanId}/damages`).update({damagesStatus: true})
+                } 
+                props.closeAddDamage();
             })
         })
       }
