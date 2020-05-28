@@ -22,7 +22,7 @@ function AddVanMedia(props){
     const handleFireBaseUpload = e => {
         e.preventDefault()
         let mediaId = v4();
-        let storage = firebase.storage().ref(`${props.van.vanId}/${imageAsFile.name}`)
+        let storage = firebase.storage().ref(`${props.van.vanId}/${v4()}`)
         console.log('start of upload')
         if(imageAsFile === '') {
             console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
