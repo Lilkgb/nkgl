@@ -135,3 +135,16 @@ img{
         padding: 10px;
     }
 }
+
+.damageDescription{
+    display: flex;
+    justify-content: space-around;
+}
+
+.showMedia{
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+        background-color: red;
+    }
+}

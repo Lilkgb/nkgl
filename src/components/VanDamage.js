@@ -33,10 +33,12 @@ function VanDamage(props){
                 let damage = arry[damages];
                 if(damage !== true){
                     return <div>
-                        <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
-                        <h3>{damage.description}</h3>
-                        <p>{damage.type}</p>
-                        <h3 onClick={() => setMediaState({state: true, info: damage})}>Show Media</h3>
+                        <div className="damageDescription">
+                            <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
+                            <h3>{damage.description}</h3>
+                            <p>{damage.type}</p>
+                        </div>
+                        <h3 className="showMedia" onClick={() => setMediaState({state: true, info: damage})}>Show Media</h3>
                     </div>
                 }
             })
