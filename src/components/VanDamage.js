@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import moment from 'moment';
 import AddVanMedia from './AddVanMedia';
+import VanMedia from './VanMedia';
 
 function VanDamage(props){
 
@@ -8,29 +9,28 @@ function VanDamage(props){
 
     let damages;
     let damageForm;
+    let media;
 
     const [addDamageForm, setAddDamageForm] = useState(true);
+    const [mediaState, setMediaState] = useState(false)
+
+    if(mediaState.state){
+        media = <VanMedia closeMedia={() => setMediaState({state: false, info: null})} van={mediaState.info}/>
+    } else {
+        media = null;
+    }
 
     if(props.van.damages){
         if(props.van.damages.damagesStatus){
             damages = Object.keys(props.van.damages).map((damages) => {
                 let damage = props.van.damages[damages];
                 if(damage !== true){
-                    if(damage.type.includes("video")){
-                        return <div key={damages}>
-                            <h3>Date: {moment(damage.date).format("MMM Do YYYY")}</h3>
-                            <p>{damage.description}</p>
-                            <video width="100%" height="500" controls >
-                            <source src={damage.media} type="video/mp4"/>
-                            </video>
-                        </div>
-                    } else{
-                        return <div key={damages}>
-                            <img src={damage.media}/>
-                            <h3>Date: {moment(damage.date).format("MMM Do YYYY")}</h3>
-                            <p>{damage.description}</p>
-                        </div>
-                    }
+                    return <div>
+                        <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
+                        <h3>{damage.description}</h3>
+                        <p>{damage.type}</p>
+                        <h3 onClick={() => setMediaState({state: true, info: damage})}>Show Media</h3>
+                    </div>
                 }
             })
         } else {
@@ -48,6 +48,7 @@ function VanDamage(props){
     return(
         <div className="damageForm">
             {damageForm}
+            {media}
             <button className="addDamageButton" onClick={() => setAddDamageForm({state: true, info: null})}>Add Damage</button>
             <h1>Damages</h1>
             {damages}
