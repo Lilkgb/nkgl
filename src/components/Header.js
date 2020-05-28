@@ -80,6 +80,7 @@ function Header(){
         <div className={headerDisplay.menu}>
           <NavLink exact to='/' onClick={() => setShowHide(false)}><h3>Home</h3></NavLink>
           <NavLink to='/employees' onClick={() => setShowHide(false)}><h3>Employees</h3></NavLink>
+          <NavLink to='/vanlist'><h3>Van List</h3></NavLink>
           <button onClick={signOut}>Log Out</button>
         </div>
     </div>;

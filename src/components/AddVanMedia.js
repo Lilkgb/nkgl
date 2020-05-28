@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
+import * as firebase from 'firebase';
 
-function AddVanMedia(){
+function AddVanMedia(props){
+
+    console.log(props)
     
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
-    console.log(imageAsFile)
-    console.log(imageAsUrl)
+    // console.log(imageAsFile)
+    // console.log(imageAsUrl)
 
     const handleImageAsFile = (e) => {
         const image = e.target.files[0]
@@ -37,8 +42,19 @@ function AddVanMedia(){
       }
 
     return(
-        <div className="addEmployeeContainer">
-            <div className="addEmployeeInsideContainer">
+        <div className="addDamageContainer">
+            <div className="addDamageInsideContainer">
+            <h1>Add Damage for <span style={{"text-decoration": "underline"}}>{props.van.name}</span></h1>
+            <br />
+            <label>Description: </label>
+            <textarea 
+                rows="5"
+                cols="50"
+                type="text"
+                value={description}
+                onChange={e => setDescription(e.target.value)}
+                placeholder = "Description"
+            />
             <form onSubmit={handleFireBaseUpload}>
                 <input 
                 type="file"
@@ -46,7 +62,7 @@ function AddVanMedia(){
                 />
                 <button>Upload</button>
             </form>
-            <button className="cancel" onClick={() => props.closeAddImage()}>Cancel</button>
+            <button className="cancel" onClick={() => props.closeAddDamage()}>Cancel</button>
             </div>
         </div>
     )

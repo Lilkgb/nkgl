@@ -1,3 +1,5 @@
+@import './Mixins.scss';
+
 .docContainer{
     width: 95vw;
     height: auto;
@@ -42,4 +44,72 @@
     .teal{
         background-color: teal;
     }
+}
+
+.damageForm{
+    position: relative;
+    .addDamageButton{
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 0;
+        border: 0;
+        border: 1px solid black;
+    }
+}
+
+.addDamageContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    .addDamageInsideContainer{
+        background-color: white;
+        max-height: 95vh;
+        max-width: 90vw;
+        overflow: auto;
+        padding: 15px;
+        z-index: 1;
+        button{
+        cursor: pointer;
+        }
+        @include mQ(775px){
+        max-height: 80vh;
+        margin-top: -10vh;
+        }
+    }
+    button{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: white;
+        width: 100px;
+        font-size: 20px;
+        border: 1px solid black;
+        cursor: pointer;
+        &:hover{
+        border: 1px solid teal;
+        text-decoration: underline;
+        background-color: teal;
+        color: white;
+        transition: .3s linear;
+        }
+    }
+  .cancel{
+    &:hover{
+      border: 1px solid red;
+      background-color: red;
+    }
+  }
 }

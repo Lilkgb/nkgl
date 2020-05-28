@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import InputMask from "react-input-mask";
 
 function AddVan(props){
+    
     const [name, setName] = useState("");
     const [retrieveDate, setRetrieveDate] = useState("");
     const [vin, setVin] = useState("");
@@ -24,7 +25,7 @@ function AddVan(props){
                 checker = snapshot.val();
               });
             if(checker === undefined || checker === null){
-                firebase.database().ref(`vanList/${vanId}`).set({name: name, rental: rental, vanId: vanId, vin: vin, retrieveDate: retrieveDate, status: status, termDate: "null", docs : {docStatus: true}, damages: {damagesStatus: true}}).catch(error => {
+                firebase.database().ref(`vanList/${vanId}`).set({name: name, rental: rental, vanId: vanId, vin: vin, retrieveDate: retrieveDate, status: status, termDate: "null", docs : {docStatus: false}, damages: {damagesStatus: false}}).catch(error => {
                     console.log(error)
                 })
                 setError("New van has been successfully added")
