@@ -5,11 +5,13 @@ import VanMedia from './VanMedia';
 
 function VanDamage(props){
 
-    console.log(props)
-
     let damages;
     let damageForm;
     let media;
+
+    let arry = []
+
+    console.log(arry.sort((a, b) => a.date - b.date))
 
     const [addDamageForm, setAddDamageForm] = useState(true);
     const [mediaState, setMediaState] = useState(false)
@@ -22,8 +24,13 @@ function VanDamage(props){
 
     if(props.van.damages){
         if(props.van.damages.damagesStatus){
-            damages = Object.keys(props.van.damages).map((damages) => {
-                let damage = props.van.damages[damages];
+            Object.keys(props.van.damages).map((damages) => {
+                let damage = props.van.damages[damages]
+                arry.push(damage)
+            })
+            arry.sort((a, b) => b.date - a.date)
+            damages = Object.keys(arry).map((damages) => {
+                let damage = arry[damages];
                 if(damage !== true){
                     return <div>
                         <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
