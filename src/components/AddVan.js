@@ -24,7 +24,7 @@ function AddVan(props){
                 checker = snapshot.val();
               });
             if(checker === undefined || checker === null){
-                firebase.database().ref(`vanList/${vanId}`).set({name: name, rental: rental, vanId: vanId, vin: vin, retrieveDate: retrieveDate, status: status, termDate: "null", docs : {docStatus: true}}).catch(error => {
+                firebase.database().ref(`vanList/${vanId}`).set({name: name, rental: rental, vanId: vanId, vin: vin, retrieveDate: retrieveDate, status: status, termDate: "null", docs : {docStatus: true}, damages: {damagesStatus: true}}).catch(error => {
                     console.log(error)
                 })
                 setError("New van has been successfully added")

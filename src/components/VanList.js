@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import AddVan from './AddVan';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
+import '../scss/Vans.scss';
 
 function VanList(props){
 

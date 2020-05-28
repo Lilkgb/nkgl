@@ -5,9 +5,10 @@ function VanInfo(props){
 
     let display;
     let van;
+    let docView;
 
-    console.log(props)
-    console.log(van)
+    const [documents, setDocuments] = useState("info");
+    const [information, setInformationState ] = useState(false);
 
     for(let i=0; i < props.allVans.length; i++){
         if(props.allVans[i].vanId === props.match.params.id){
@@ -49,8 +50,23 @@ function VanInfo(props){
             <button onClick={nextVan}> Next </button>
             <button onClick={prevVan}> Back </button>
             <h1>{van.name}</h1>
-            <p>{van.vin}</p>
         </div>
+        if(documents === "info"){
+            docView = <div className="docContainer">
+                <h1>Van Name: {van.name}</h1>
+                <h2>Vin: {van.vin}</h2>
+                <h3>Status: <span className={van.status}>{van.status}</span></h3>
+                <h3>Retrieved Van On: {van.retrieveDate}</h3>
+            </div>
+        } else if(documents === "documents"){
+            docView = <div className="docContainer">
+                <h1>Documents</h1>
+            </div>
+        } else if(documents === "damages"){
+            docView = <div className="docContainer">
+                <h1>Damages</h1>
+            </div>
+        }
     } else {
         display = <h1>Loading . . .</h1>
     }
@@ -59,6 +75,12 @@ function VanInfo(props){
         <div>
             <button onClick={goBack}>Go Back</button>
             {display}
+            <div className={`docHeader`}>
+                <button className={`${information==="information" ? "teal" : ""}`} onClick={() => {setDocuments("info"); setInformationState("information");}}>Information</button>
+                <button className={`${information==="documents" ? "teal" : ""}`} onClick={() => {setDocuments("documents"); setInformationState("documents");}}>Documents</button>
+                <button className={`${information==="damages" ? "teal" : ""}`} onClick={() => {setDocuments("damages"); setInformationState("damages");}}>Damages</button>
+            </div>
+            {docView}
         </div>
     )
 }
