@@ -48,9 +48,11 @@ function VanInfo(props){
     }
 
     if(van){
-        display = <div>
-            <button onClick={nextVan}> Next </button>
-            <button onClick={prevVan}> Back </button>
+        display = <div className="vanInfoTop">
+            <div className="nextBack">
+                <button onClick={prevVan}> Back </button>
+                <button onClick={nextVan}> Next </button>
+            </div>
             <h1>{van.name}</h1>
         </div>
         if(documents === "info"){
@@ -75,7 +77,7 @@ function VanInfo(props){
 
     return(
         <div>
-            <button onClick={goBack}>Go Back</button>
+            <button className="goBack" onClick={goBack}>Go Back</button>
             {display}
             <div className={`docHeader`}>
                 <button className={`${information==="information" ? "teal" : ""}`} onClick={() => {setDocuments("info"); setInformationState("information");}}>Information</button>
