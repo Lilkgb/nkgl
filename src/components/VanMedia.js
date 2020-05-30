@@ -10,6 +10,8 @@ function VanMedia(props){
         media = <video width="100%" height="500" controls >
         <source src={props.van.media} type="video/mp4"/>
         </video>
+    } else if(props.van.type.includes("pdf")){
+        media = <a href = {props.van.media} target = "_blank">Download Pdf</a>
     } else{
         media = <img src={props.van.media}/>
     }
