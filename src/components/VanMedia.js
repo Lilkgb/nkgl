@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import * as firebase from 'firebase';
 
 function VanMedia(props){
 
@@ -6,14 +7,20 @@ function VanMedia(props){
 
     let media;
 
+    let storageRef = firebase.storage()
+
     if(props.van.type.includes("video")){
         media = <video width="100%" height="500" controls >
         <source src={props.van.media} type="video/mp4"/>
+        <a href = {props.van.media} target = "_blank">Download</a>
         </video>
     } else if(props.van.type.includes("pdf")){
         media = <a href = {props.van.media} target = "_blank">Download Pdf</a>
     } else{
-        media = <img src={props.van.media}/>
+        media = <div>
+        <img src={props.van.media}/>
+        <a href = {props.van.media} target = "_blank">Download</a>
+        </div>
     }
 
     return(
