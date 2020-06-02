@@ -49,25 +49,35 @@ function AddVanMedia(props){
     return(
         <div className="addDamageContainer">
             <div className="addDamageInsideContainer">
-            <h1>Add Damage for <span style={{"text-decoration": "underline"}}>{props.van.name}</span></h1>
-            <br />
-            <label>Description: </label>
-            <textarea 
-                rows="5"
-                cols="50"
-                type="text"
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-                placeholder = "Description"
-            />
-            <form onSubmit={handleFireBaseUpload}>
+                <button className="cancel" onClick={() => props.closeAddDamage()}>Cancel</button>
+                <h1>Add Damage for <span style={{"text-decoration": "underline"}}>{props.van.name}</span></h1>
+                <br />
+                <label>Title: </label>
+                <br/>
                 <input 
-                type="file"
-                onChange={handleImageAsFile}
+                    style={{"marginBottom": "10px"}}
+                    value={name}
+                    type="text"
+                    onChange={e => setName(e.target.value)}
+                    />
+                <br/>
+                <label>Description: </label>
+                <br/>
+                <textarea 
+                    rows="5"
+                    cols="50"
+                    type="text"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                    placeholder = "Description"
                 />
-                <button>Upload</button>
-            </form>
-            <button className="cancel" onClick={() => props.closeAddDamage()}>Cancel</button>
+                <form onSubmit={handleFireBaseUpload}>
+                    <input 
+                    type="file"
+                    onChange={handleImageAsFile}
+                    />
+                    <button>Upload</button>
+                </form>
             </div>
         </div>
     )

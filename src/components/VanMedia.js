@@ -7,7 +7,7 @@ function VanMedia(props){
 
     let media;
 
-    let storageRef = firebase.storage()
+    let storage = firebase.storage();
 
     if(props.van.type.includes("video")){
         media = <video width="100%" height="500" controls >

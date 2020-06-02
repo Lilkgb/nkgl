@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as firebase from 'firebase';
 import '../scss/Header.scss';
 
@@ -7,7 +7,6 @@ function Header(){
 
   let display;
   let headerDisplay;
-  const[active, setActive] = useState("activeHome");
   const[showHide, setShowHide] = useState(false)
 
   function signOut(){
