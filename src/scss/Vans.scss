@@ -167,9 +167,25 @@ img{
                 box-shadow: 0px 0px 10px black inset;
             }
         }
+        .mobileDownload{
+            border: 1px solid black;
+            padding: 5px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
         @include mQ(775px){
             max-height: 80vh;
             margin-top: -10vh;
+            min-width: auto;
+            min-height: auto;
+            iframe{
+                display: none;
+            }
         }
     }
     img{
