@@ -15,7 +15,7 @@ function VanMedia(props){
         </video>
     } else if(props.van.type.includes("pdf")){
         media = <div>
-                <iframe src={props.van.media} width="100%" height="600"></iframe>
+                <iframe src={props.van.media} width="600px" height="600px"></iframe>
             </div>
     } else{
         media = <div>
