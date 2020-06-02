@@ -79,22 +79,25 @@ function VanList(props){
             <h1>Van List</h1>
             <button onClick={() => setAddVanForm(true)}>Add New Van</button>
             <div className="search">
-                <label>Search By: </label>
-                <select id="status" value={search} onChange={e => setSearch(e.target.value)}>
-                    <option value="name">Name</option>
-                    <option value="vin">Vin</option>
-                </select>
-                <br/>
-                <label>Find: </label>
-                {searchInput}
-                <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
-                    <option value="all">All</option>
-                    <option value="Active">Active</option>
-                    <option value="Rental">Rental</option>
-                    <option value="Body Shop">Body Shop</option>
-                    <option value="Oil Change">Oil Change</option>
-                    <option value="Offboarded">Offboarded</option>
-                </select>
+                <div className="item">
+                    <label>Search By: </label>
+                    <select id="status" value={search} onChange={e => setSearch(e.target.value)}>
+                        <option value="name">Name</option>
+                        <option value="vin">Vin</option>
+                    </select>
+                </div>
+                <div className="item">
+                    <label>Find: </label>
+                    {searchInput}
+                    <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
+                        <option value="all">All</option>
+                        <option value="Active">Active</option>
+                        <option value="Rental">Rental</option>
+                        <option value="Body Shop">Body Shop</option>
+                        <option value="Oil Change">Oil Change</option>
+                        <option value="Offboarded">Offboarded</option>
+                    </select>
+                </div>
             </div>
             {displayVans}
         </div>

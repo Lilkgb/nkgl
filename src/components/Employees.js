@@ -52,20 +52,22 @@ function Employees(props){
             {newEmployeeForm}
             {employeeInfo}
             <div className="search">
-                <label>Find: </label>
-                <input
-                    type="text"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    placeholder = "Find Employee"
-                />
-                <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
-                    <option value="all">All</option>
-                    <option value="Active">Active</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="In Training">In Training</option>
-                    <option value="Quit/Terminated">Quit/Terminated</option>
-                </select>
+                <div className="item">
+                    <label>Find: </label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        placeholder = "Find Employee"
+                    />
+                    <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
+                        <option value="all">All</option>
+                        <option value="Active">Active</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="In Training">In Training</option>
+                        <option value="Quit/Terminated">Quit/Terminated</option>
+                    </select>
+                </div>
             </div>
             {displayEmployees}
         </div>
