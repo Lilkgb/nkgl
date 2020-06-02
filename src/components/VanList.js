@@ -87,8 +87,7 @@ function VanList(props){
                     </select>
                 </div>
                 <div className="item">
-                    <label>Find: </label>
-                    {searchInput}
+                    <label>Status: </label>
                     <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
                         <option value="all">All</option>
                         <option value="Active">Active</option>
@@ -97,6 +96,10 @@ function VanList(props){
                         <option value="Oil Change">Oil Change</option>
                         <option value="Offboarded">Offboarded</option>
                     </select>
+                </div>
+                <div className="item">
+                    <label>Find: </label>
+                    {searchInput}
                 </div>
             </div>
             {displayVans}

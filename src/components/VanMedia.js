@@ -10,16 +10,16 @@ function VanMedia(props){
     let storage = firebase.storage();
 
     if(props.van.type.includes("video")){
-        media = <video width="100%" height="500" controls >
+        media = <video width="100%" height="500px" controls >
         <source src={props.van.media} type="video/mp4"/>
-        <a href = {props.van.media} target = "_blank">Download</a>
         </video>
     } else if(props.van.type.includes("pdf")){
-        media = <a href = {props.van.media} target = "_blank">Download Pdf</a>
+        media = <div>
+                <iframe src={props.van.media} width="100%" height="600"></iframe>
+            </div>
     } else{
         media = <div>
         <img src={props.van.media}/>
-        <a href = {props.van.media} target = "_blank">Download</a>
         </div>
     }
 
@@ -27,7 +27,7 @@ function VanMedia(props){
         <div className="mediaContainer">
             <div className="mediaInnerContainer">
                 <button onClick={() => props.closeMedia()}>Close</button>
-                <h1>damage</h1>
+                <br/>
                 {media}
             </div>
         </div>
