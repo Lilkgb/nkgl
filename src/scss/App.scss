@@ -266,3 +266,29 @@
     overflow: auto;
   }
 }
+
+.search{
+  width: 90vw;
+  margin: auto;
+  background-color: teal;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  label{
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  select{
+    margin-right: 5px;
+    border: 1px solid black;
+  }
+  input{
+    border: 1px solid black;
+    margin-right: 5px;
+  }
+}

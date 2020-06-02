@@ -14,7 +14,7 @@ function Employees(props){
     const [employeeInfoComponent, setEmployeeInfoComponent] = useState({state: false, currentEmployee: null});
 
     if(addNewEmployee === false){
-        newEmployeeForm = <div><button onClick={() => setNewEmployee(true)}>Add New Employee</button></div>;
+        newEmployeeForm = <div><button onClick={() => setNewEmployee(true)} style={{"marginBottom": "20px"}}>Add New Employee</button></div>;
     } else if(addNewEmployee === true){
         newEmployeeForm = <AddEmployee closeEmployeeFormComponent={() => setNewEmployee(false)}/>
     }
@@ -48,10 +48,9 @@ function Employees(props){
 
     return(
         <div className='emContainer'>
+            <h1>Employees!</h1>
             {newEmployeeForm}
             {employeeInfo}
-            <h1>Employees!</h1>
-            <h2>Add new employee</h2>
             <input
                 className="findEmployee"
                 type="text"
