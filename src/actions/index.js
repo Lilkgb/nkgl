@@ -1,6 +1,8 @@
 import constants from './../constants';
 import * as firebase from 'firebase';
 import {store} from './../index';
+import moment from 'moment';
+
 const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
@@ -22,7 +24,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     firebase.database().ref("vanList").orderByChild("name").on('value', function(snapshot) {
       let list = []
       snapshot.forEach(function(child){
-        list.push(child.val())
+        let van = child.val()
+        list.push(van)
       })
       store.dispatch(getAllVans(list))
     })

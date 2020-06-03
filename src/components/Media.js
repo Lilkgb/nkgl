@@ -30,6 +30,7 @@ function Media(props){
                 <button onClick={() => props.closeMedia()}>Close</button>
                 <br/>
                 {media}
+                <button style={{"marginTop": "20px"}}>Delete</button>
             </div>
         </div>
     )

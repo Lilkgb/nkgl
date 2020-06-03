@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import VanDamage from './VanDamage';
+import VanDamages from './VanDamages';
 import VanDocuments from './VanDocuments';
 
 function VanInfo(props){
@@ -68,7 +68,7 @@ function VanInfo(props){
             </div>
         } else if(documents === "damages"){
             docView = <div className="docContainer">
-                <VanDamage van={van}/>
+                <VanDamages van={van}/>
             </div>
         }
     } else {

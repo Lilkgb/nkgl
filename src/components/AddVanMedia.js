@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import * as firebase from 'firebase';
 import {v4} from 'uuid';
 
@@ -6,18 +6,23 @@ function AddVanMedia(props){
 
     console.log(props)
     
-    const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
-    console.log(imageAsFile.type)
-    console.log(imageAsUrl)
+    const [disableThis, setDisableThis] = useState(false)
 
     const handleImageAsFile = (e) => {
         const image = e.target.files[0]
         setImageAsFile(imageFile => (image))
     }
+
+    useEffect(() => {
+        if(props.description.description === "Daily Video"){
+            setDescription("Daily Video")
+            setDisableThis("disabled")
+        }
+    },[])
 
     const handleFireBaseUpload = e => {
         e.preventDefault()
@@ -50,17 +55,8 @@ function AddVanMedia(props){
         <div className="addDamageContainer">
             <div className="addDamageInsideContainer">
                 <button className="cancel" onClick={() => props.closeAddDamage()}>Cancel</button>
-                <h1>Add Damage for <span style={{"text-decoration": "underline"}}>{props.van.name}</span></h1>
+                <h1>Add Media for <span style={{"textDecoration": "underline"}}>{props.van.name}</span></h1>
                 <br />
-                <label>Title: </label>
-                <br/>
-                <input 
-                    style={{"marginBottom": "10px"}}
-                    value={name}
-                    type="text"
-                    onChange={e => setName(e.target.value)}
-                    />
-                <br/>
                 <label>Description: </label>
                 <br/>
                 <textarea 
@@ -70,6 +66,7 @@ function AddVanMedia(props){
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     placeholder = "Description"
+                    disabled = {disableThis}
                 />
                 <form onSubmit={handleFireBaseUpload}>
                     <input 
