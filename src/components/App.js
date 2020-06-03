@@ -36,7 +36,7 @@ function App(props) {
   return (
     <div className="App">
       <div className="background">
-        <img className="background" src={require('../assets/icon/nkglIcon.png')}/>
+        <img src={require('../assets/icon/nkglIcon.png')}/>
       </div>
       {display}
     </div>
