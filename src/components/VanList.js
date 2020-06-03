@@ -39,6 +39,8 @@ function VanList(props){
                         return normalReturn
                     } else if(lowercaseName.includes(name.toLowerCase()) && individual.status === status){
                         return normalReturn
+                    } else if(individual.rental === "Yes" && status === "Rental"){
+                        return normalReturn
                     }
                 }
             } else if(search === "vin"){
@@ -46,6 +48,8 @@ function VanList(props){
                     if(status === "all"){
                         return normalReturn
                     } else if(lowercaseName.includes(name.toLowerCase()) && individual.status === status){
+                        return normalReturn
+                    } else if(individual.rental === "Yes" && status === "Rental"){
                         return normalReturn
                     }
                 }

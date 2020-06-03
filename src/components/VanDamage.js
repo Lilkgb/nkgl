@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import moment from 'moment';
 import AddVanMedia from './AddVanMedia';
-import VanMedia from './VanMedia';
+import VanMedia from './Media';
 
 function VanDamage(props){
 
@@ -35,15 +35,15 @@ function VanDamage(props){
                     return <div className="damageDescriptionContainer" key={damages}>
                         <div className="damageDescription">
                             <div>
-                                <h1 style={{"text-decoration": "underline"}}>Date:</h1>
+                                <h1 style={{"textDecoration": "underline"}}>Date:</h1>
                                 <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>
                             </div>
                             <div>
-                                <h1 style={{"text-decoration": "underline"}}>Description:</h1>
+                                <h1 style={{"textDecoration": "underline"}}>Description:</h1>
                                 <h3>{damage.description}</h3>
                             </div>
                             <div>
-                                <h1 style={{"text-decoration": "underline"}}>File Format:</h1>
+                                <h1 style={{"textDecoration": "underline"}}>File Format:</h1>
                                 <p>{damage.type}</p>
                             </div>
                         </div>

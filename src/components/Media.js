@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import * as firebase from 'firebase';
 
-function VanMedia(props){
+function Media(props){
 
     console.log(props)
 
@@ -35,4 +35,4 @@ function VanMedia(props){
     )
 }
 
-export default VanMedia;
+export default Media;
