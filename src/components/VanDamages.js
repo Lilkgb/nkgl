@@ -50,8 +50,8 @@ function VanDamages(props){
                     } else {
                         if(damage.description != "Daily Video"){
                             btn = <button className="btn" onClick={() => setAddDamageForm({state: true, info: damage})}>Add New Damage</button>
-                            return <div className="damageDescriptionContainer" key={damages}>   
-                            <div className="damageDescription">
+                            return <div className="descriptionsContainer" key={damages}>   
+                            <div className="descriptions">
                                 <div>
                                     <h1 style={{"textDecoration": "underline"}}>Date:</h1>
                                     <h1>{moment(damage.date).format("MMM Do YYYY")}</h1>

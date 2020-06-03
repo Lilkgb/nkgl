@@ -198,7 +198,7 @@ img{
     }
 }
 
-.damageDescription{
+.descriptions{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     h1{
@@ -209,10 +209,10 @@ img{
       }
 }
 
-.damageDescriptionContainer:nth-child(even){
+.descriptionsContainer:nth-child(even){
     background-color: white;
   }
-  .damageDescriptionContainer:nth-child(odd){
+  .descriptionsContainer:nth-child(odd){
     background-color: lightgrey;
   }
 

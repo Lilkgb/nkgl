@@ -31,8 +31,8 @@ function VanDocuments(props){
             documents = Object.keys(props.van.docs).map((documents) => {
                 let document = props.van.docs[documents];
                 if(document !== true){
-                    return <div className="damageDescriptionContainer" key={documents}>   
-                    <div className="damageDescription">
+                    return <div className="descriptionsContainer" key={documents}>   
+                    <div className="descriptions">
                         <div>
                             <h1 style={{"textDecoration": "underline"}}>Date:</h1>
                             <h1>{moment(document.date).format("MMM Do YYYY")}</h1>
