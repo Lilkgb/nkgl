@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import moment from 'moment';
 import AddVanMedia from './AddVanMedia';
-import VanMedia from './Media';
+import Media from './Media';
 
 function VanDamages(props){
 
@@ -19,7 +19,7 @@ function VanDamages(props){
     const [mediaState, setMediaState] = useState(false)
 
     if(mediaState.state){
-        media = <VanMedia closeMedia={() => setMediaState({state: false, info: null})} van={mediaState.info}/>
+        media = <Media closeMedia={() => setMediaState({state: false, info: null})} van={mediaState.info}/>
     } else {
         media = null;
     }
