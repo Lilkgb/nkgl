@@ -26,11 +26,12 @@ function SignIn(){
     } else {
         signUpForm = 
         <div className="signInContainer">
-            <img src={require('../assets/icon/nkglIcon.png')}/>
             <div className="signInForm">
                 <form onSubmit={signInFunction}>
                     <input placeholder="Email" type="email" ref={value => {_email = value}}/>
+                    <br/>
                     <input placeholder="Password" type="password" ref={value => {_password = value}}/>
+                    <br/>
                     <button type="submit">Sign in</button>
                     <p>{error}</p>
                 </form>

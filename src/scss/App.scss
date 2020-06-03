@@ -305,23 +305,54 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  img{
-    position: fixed;
-    max-width: 100vw;
-    max-height: 100vh;
-    z-index: -1;
-  }
   .signInForm{
     max-width: 90vw;
     max-height: 80vh;
     margin: auto;
     padding: 15px;
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid black;
     form{
       max-width: 90vw;
       max-height: 80vh;
       padding: 15px;
+      input{
+        width: 300px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        text-align: center;
+        border: 2px solid black;
+        transition: .3s linear;
+        &:focus{
+          outline: none;
+          border: none;
+          border-left: 2px solid black;
+          border-top: 2px solid black;
+          border-right: 2px solid black;
+          border-bottom: 2px solid teal;
+        }
+      }
+      button{
+        width: 150px;
+        font-size: 16px;
+        border-radius: none;
+        border: 1px solid black;
+        cursor: pointer;
+      }
     }
+  }
+}
+
+.background{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  img{
+    max-width: 95vw;
+    max-height: 95vh;
   }
 }
