@@ -410,30 +410,7 @@
   margin: auto;
   border-top: 0;
   padding: 0;
-  button{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    padding: 10px;
-    background-color: #efefef;
-    width: 100px;
-    font-size: 20px;
-    border: 1px solid black;
-    cursor: pointer;
-    &:hover{
-      border: 1px solid teal;
-      text-decoration: underline;
-      background-color: teal;
-      color: white;
-      transition: .3s linear;
-    }
-  }
-  .cancel{
-    &:hover{
-      border: 1px solid red;
-      background-color: red;
-    }
-  }
+  
   h1{
       margin-top: 0;
       padding-top: 15px;

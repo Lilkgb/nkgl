@@ -72,7 +72,7 @@ function EmployeeInfo(props){
         if(documents === "info"){
             docView = <div className="docContainer">
             <div className="employeeInfoTop">
-                <button>Edit</button>
+                <button className="addBtn">Edit</button>
                 <h3 className={employee.status}>{employee.status}</h3>
                 <button className="cancel" onClick={props.closeEmployeeInfoComponent}>Close</button>
             </div>

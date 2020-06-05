@@ -61,7 +61,7 @@ function VanDocuments(props){
         <div>
             {media}
             {displayForm}
-            <button className="btn" onClick={() => setAddDocForm(true)}>Add New Document</button>
+            <button className="addBtn" onClick={() => setAddDocForm(true)}>Add New Document</button>
             {documents}
         </div>
     )

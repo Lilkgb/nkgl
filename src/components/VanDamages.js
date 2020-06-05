@@ -36,7 +36,7 @@ function VanDamages(props){
                 if(damage !== true){
                     if(information === "Daily Video"){
                         if(damage.description === "Daily Video"){
-                            btn = <button className="btn" onClick={() => setAddDamageForm({state: true, info: damage})}>Add New Video</button>
+                            btn = <button className="addBtn" onClick={() => setAddDamageForm({state: true, info: damage})}>Add New Video</button>
                             return <div key={damages}>
                                 <div>
                                     <h1 style={{"textDecoration": "underline"}}>Date:</h1>
@@ -49,7 +49,7 @@ function VanDamages(props){
                         }
                     } else {
                         if(damage.description != "Daily Video"){
-                            btn = <button className="btn" onClick={() => setAddDamageForm({state: true, info: damage})}>Add New Damage</button>
+                            btn = <button className="addBtn" onClick={() => setAddDamageForm({state: true, info: damage})}>Add New Damage</button>
                             return <div className="descriptionsContainer" key={damages}>   
                             <div className="descriptions">
                                 <div>
