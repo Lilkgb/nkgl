@@ -74,7 +74,6 @@ function EmployeeInfo(props){
             <div className="employeeInfoTop">
                 <button className="addBtn">Edit</button>
                 <h3 className={employee.status}>{employee.status}</h3>
-                <button className="cancel" onClick={props.closeEmployeeInfoComponent}>Close</button>
             </div>
             <div className="nameAndImg">
                 <div className="profileImg">
