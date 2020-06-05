@@ -10,7 +10,7 @@ function VanInfo(props){
     let docView;
 
     const [documents, setDocuments] = useState("info");
-    const [information, setInformationState ] = useState(false);
+    const [information, setInformationState ] = useState("information");
 
     for(let i=0; i < props.allVans.length; i++){
         if(props.allVans[i].vanId === props.match.params.id){
@@ -51,9 +51,9 @@ function VanInfo(props){
         display = <div className="vanInfoTop">
             <div className="nextBack">
                 <button onClick={prevVan}> Back </button>
+                <h1>{van.name}</h1>
                 <button onClick={nextVan}> Next </button>
             </div>
-            <h1>{van.name}</h1>
         </div>
         if(documents === "info"){
             docView = <div className="docContainer">

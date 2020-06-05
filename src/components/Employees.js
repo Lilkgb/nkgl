@@ -2,27 +2,20 @@ import React, {useState} from 'react';
 import AddEmployee from './AddEmployee';
 import EmployeeInfo from './EmployeeInfo';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Employees(props){
 
     let newEmployeeForm;
-    let employeeInfo;
 
     const [status, setStatus] = useState("all");
     const [name, setName] = useState("");
     const [addNewEmployee, setNewEmployee] = useState(false)
-    const [employeeInfoComponent, setEmployeeInfoComponent] = useState({state: false, currentEmployee: null});
 
     if(addNewEmployee === false){
         newEmployeeForm = <div><button onClick={() => setNewEmployee(true)} style={{"marginBottom": "20px"}}>Add New Employee</button></div>;
     } else if(addNewEmployee === true){
         newEmployeeForm = <AddEmployee closeEmployeeFormComponent={() => setNewEmployee(false)}/>
-    }
-
-    if(employeeInfoComponent.state === false){
-        employeeInfo = null;
-    } else if(employeeInfoComponent.state === true){
-        employeeInfo = <EmployeeInfo closeEmployeeInfoComponent={() => setEmployeeInfoComponent({state: false, currentEmployee: null})} currentEmployee={employeeInfoComponent.currentEmployee}/>
     }
 
     let displayEmployees;
@@ -32,7 +25,7 @@ function Employees(props){
             let individual = props.allEmployees[employee];
             let lowercaseName = individual.name.toLowerCase();
             let normalReturn = <div key={employee} className="employeeList">
-                <h1 onClick={() => setEmployeeInfoComponent({state: true, currentEmployee: individual})}>{individual.name}</h1>
+                <Link to={`/employee/${individual.employeeId}`}><h1>{individual.name}</h1></Link>
                 <p className={individual.status}>{individual.status}</p></div>;
             if(lowercaseName.includes(name.toLowerCase())){
                 if(status === "all"){
@@ -50,7 +43,6 @@ function Employees(props){
         <div>
             <h1>Employees!</h1>
             {newEmployeeForm}
-            {employeeInfo}
             <div className="search">
                 <div className="item">
                     <label>Find: </label>
@@ -65,7 +57,7 @@ function Employees(props){
                         <option value="Active">Active</option>
                         <option value="In Progress">In Progress</option>
                         <option value="In Training">In Training</option>
-                        <option value="Quit/Terminated">Quit/Terminated</option>
+                        <option value="Offboarded">Offboarded</option>
                     </select>
                 </div>
             </div>

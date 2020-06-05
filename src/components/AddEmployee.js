@@ -12,12 +12,12 @@ function AddEmployee(props){
     const [personalEmail, setPersonalEmail] = useState("");
     const [workEmail, setWorkEmail] = useState("");
     const [address, setAddress] = useState("");
-    const [apt, setApt] = useState("");
     const [state, setState] = useState("");
     const [zip, setZip] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [dob, setDob] = useState("");
-    const [status, setStatus] = useState("Active")
+    const [status, setStatus] = useState("Active");
+    const [city, setCity] = useState("");
     const [error, setError] = useState()
 
     function addEmployeeFunction(e){
@@ -36,10 +36,10 @@ function AddEmployee(props){
             setError("Please check state")
         } else if(zip === ""){
             setError("Please check Zip Code")
+        } else if(city === ""){
+            setError("Please Check City")
         } else if(phoneNumber === ""){
             setError("Please Check Phone Number")
-        } else if(apt === ""){
-            setApt("null")
         } else if(dob === ""){
             setError("Please Check Birthday")
         } else {
@@ -49,10 +49,11 @@ function AddEmployee(props){
                 checker = snapshot.val();
               });
             if(checker === undefined || checker === null){
-                firebase.database().ref(`employees/${employeeId}`).set({name: name, employeeId: employeeId, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, apt: apt, termDate: "null", docs : {docStatus: true}}).catch(error => {
+                firebase.database().ref(`employees/${employeeId}`).set({name: name, employeeId: employeeId, hireDate: hireDate, social: encodeURIComponent(btoa(social1)), personalEmail: personalEmail, workEmail: workEmail, address: address, state: state, zipCode: zip, phoneNumber: phoneNumber, dob: dob, status: status, termDate: "null", docs : {docStatus: true}}).catch(error => {
                     console.log(error)
                 })
                 setError("New Employee has been successfully added")
+                props.closeEmployeeFormComponent()
             } else {
                 setError(`An employee with the current user ID is already assigned. Please click confirm to set new ID.`)
             }
@@ -100,9 +101,9 @@ function AddEmployee(props){
                     />
                     <input 
                     type="text"
-                    value={apt}
-                    onChange={e => setApt(e.target.value)}
-                    placeholder = "Apt?"
+                    value={city}
+                    onChange={e => setCity(e.target.value)}
+                    placeholder = "City"
                     />
                     <input 
                     type="text"

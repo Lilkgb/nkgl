@@ -16,7 +16,7 @@ function Media(props){
     } else if(props.van.type.includes("pdf")){
         media = <div>
                 <iframe src={props.van.media} width="100%" height="600px"></iframe>
-                <a className="mobileDownload" href = {props.van.media} target = "_blank">Download Pdf</a>
+                <a className="mobileDownload" href = {props.van.media} target = "_blank">View Pdf</a>
             </div>
     } else{
         media = <div>

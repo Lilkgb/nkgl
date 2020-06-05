@@ -9,6 +9,7 @@ import Header from './Header';
 import Employees from './Employees';
 import VanList from './VanList';
 import VanInfo from './VanInfo';
+import EmployeeInfo from './EmployeeInfo';
 
 function App(props) {
 
@@ -20,6 +21,7 @@ function App(props) {
     <Switch>
       <Route exact path ='/' component={Home}/>
       <Route path = '/employees' component={Employees} />
+      <Route path = '/employee/:id' component={EmployeeInfo} />
       <Route path = '/vanlist' component={VanList} />
       <Route path = '/van/:id' component={VanInfo} />
       <Route component={Error404}/>
