@@ -399,6 +399,9 @@
       padding: 0;
       background-color: white;
     }
+    @include mQ(775px){
+      font-size: 12px;
+    }
   }
 }
 

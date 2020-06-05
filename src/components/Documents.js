@@ -3,7 +3,7 @@ import moment from 'moment';
 import Media from './Media';
 import AddDocument from './AddDocument';
 
-function VanDocuments(props){
+function Documents(props){
 
     const [addDocForm, setAddDocForm] = useState(false);
     const [mediaState, setMediaState] = useState(false)
@@ -15,21 +15,21 @@ function VanDocuments(props){
     let media;
 
     if(addDocForm){
-        displayForm = <AddDocument closeForm={() => setAddDocForm(false)} van={props.van}/>
+        displayForm = <AddDocument closeForm={() => setAddDocForm(false)} info={props.info}/>
     } else {
         displayForm = null;
     }
 
     if(mediaState.state){
-        media = <Media closeMedia={() => setMediaState({state: false, info: null})} van={mediaState.info}/>
+        media = <Media closeMedia={() => setMediaState({state: false, info: null})} info={mediaState.info}/>
     } else {
         media = null;
     }
 
-    if(props.van.docs){
-        if(props.van.docs.docStatus){
-            documents = Object.keys(props.van.docs).map((documents) => {
-                let document = props.van.docs[documents];
+    if(props.info.docs){
+        if(props.info.docs.docStatus){
+            documents = Object.keys(props.info.docs).map((documents) => {
+                let document = props.info.docs[documents];
                 if(document !== true){
                     return <div className="descriptionsContainer" key={documents}>   
                     <div className="descriptions">
@@ -67,4 +67,4 @@ function VanDocuments(props){
     )
 }
 
-export default VanDocuments;
+export default Documents;

@@ -6,6 +6,17 @@ import {v4} from 'uuid';
 function AddDocument(props){
     console.log(props)
 
+    let uploadInfo;
+    let refName;
+
+    if(props.info.vanId){
+        uploadInfo = props.info.vanId;
+        refName = "vanList"
+    } else {
+        uploadInfo = props.info.employeeId;
+        refName = "employees"
+    }
+
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs);
@@ -21,7 +32,7 @@ function AddDocument(props){
     const handleFireBaseUpload = e => {
         e.preventDefault()
         let mediaId = v4();
-        let storage = firebase.storage().ref(`${props.van.vanId}/${v4()}`)
+        let storage = firebase.storage().ref(`${uploadInfo}/${v4()}`)
         console.log('start of upload')
         if(imageAsFile === '') {
             console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
@@ -36,9 +47,9 @@ function AddDocument(props){
             storage.getDownloadURL()
             .then(fireBaseUrl => {
                 setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
-                firebase.database().ref(`vanList/${props.van.vanId}/docs/${mediaId}`).set({media: fireBaseUrl, type: imageAsFile.type, date: Date.now(), description: description})
-                if(props.van.docs.docStatus === false){
-                    firebase.database().ref(`vanList/${props.van.vanId}/docs`).update({docStatus: true})
+                firebase.database().ref(`${refName}/${uploadInfo}/docs/${mediaId}`).set({media: fireBaseUrl, type: imageAsFile.type, date: Date.now(), description: description})
+                if(props.info.docs.docStatus === false){
+                    firebase.database().ref(`${refName}/${uploadInfo}/docs`).update({docStatus: true})
                 }
                 props.closeForm();
             })

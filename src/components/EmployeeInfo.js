@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import AddEmployeeImage from './AddEmployeeImage';
-import * as firebase from 'firebase';
 import {connect} from 'react-redux';
+import Documents from './Documents';
 
 function EmployeeInfo(props){
 
@@ -15,7 +15,6 @@ function EmployeeInfo(props){
     
     const [seeSocial, setSeeSocial] = useState(false);
     const [uploadEmployeeImage, setUploadEmployeeImage] = useState(false);
-    const [img, setImg] = useState("");
     const [documents, setDocuments] = useState("info");
     const [information, setInformationState ] = useState("information");
 
@@ -28,13 +27,6 @@ function EmployeeInfo(props){
     function goBack(){
         props.history.push(`/employees`);
     }
-
-    firebase.database().ref(`employees/${props.match.params.id}`).on("value", (snapshot) => {
-        let info = snapshot.val();
-        if(img !== info.profileImg){
-            setImg(info.profileImg)
-        }
-    })
 
     function nextEmployee(){
         for(let i=0; i < props.allEmployees.length; i++){
@@ -77,7 +69,7 @@ function EmployeeInfo(props){
             </div>
             <div className="nameAndImg">
                 <div className="profileImg">
-                    <img src={img} alt=""/>
+                    <img src={employee.profileImg} alt=""/>
                     <div className="update">
                         <p onClick={() => setUploadEmployeeImage(true)}>Update</p>
                     </div>
@@ -100,10 +92,7 @@ function EmployeeInfo(props){
                 </div>
                 <div>
                     <h3 className="title">Address</h3>
-                    <p>{employee.address}</p>
-                    <p>{employee.apt}</p>
-                    <p>{employee.state}</p>
-                    <p>{employee.zipCode}</p>
+                    <p>{employee.address}, {employee.state} {employee.zipCode}</p>
                 </div>
                 <div>
                     <h3 className="title">Birthday</h3>
@@ -116,7 +105,7 @@ function EmployeeInfo(props){
         </div>
         } else if(documents === "documents"){
             docView = <div className="docContainer">
-                <h1>documents</h1>
+                <Documents info={employee}/>
             </div>
         }
     } else {

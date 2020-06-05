@@ -9,18 +9,18 @@ function Media(props){
 
     let storage = firebase.storage();
 
-    if(props.van.type.includes("video")){
+    if(props.info.type.includes("video")){
         media = <video width="100%" height="500px" controls >
-        <source src={props.van.media} type="video/mp4"/>
+        <source src={props.info.media} type="video/mp4"/>
         </video>
-    } else if(props.van.type.includes("pdf")){
+    } else if(props.info.type.includes("pdf")){
         media = <div>
-                <iframe src={props.van.media} width="100%" height="600px"></iframe>
-                <a className="mobileDownload" href = {props.van.media} target = "_blank">View Pdf</a>
+                <iframe src={props.info.media} width="100%" height="600px"></iframe>
+                <a className="mobileDownload" href = {props.info.media} target = "_blank">View Pdf</a>
             </div>
     } else{
         media = <div>
-        <img src={props.van.media}/>
+        <img src={props.info.media}/>
         </div>
     }
 
