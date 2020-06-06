@@ -19,7 +19,7 @@ function VanDamages(props){
     const [mediaState, setMediaState] = useState(false)
 
     if(mediaState.state){
-        media = <Media closeMedia={() => setMediaState({state: false, info: null})} van={mediaState.info}/>
+        media = <Media closeMedia={() => setMediaState({state: false, info: null})} info={mediaState.info}/>
     } else {
         media = null;
     }
