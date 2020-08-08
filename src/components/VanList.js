@@ -6,8 +6,6 @@ import '../scss/Vans.scss';
 
 function VanList(props){
 
-    console.log(props)
-
     let display;
     let displayVans;
     let searchInput;
@@ -80,7 +78,6 @@ function VanList(props){
     return(
         <div>
             {display}
-            <h1>Van List</h1>
             <button onClick={() => setAddVanForm(true)}>Add New Van</button>
             <div className="search">
                 <div className="item">

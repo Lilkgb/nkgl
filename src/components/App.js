@@ -17,7 +17,7 @@ function App(props) {
 
   if(props.authUser){
     display = <div>
-    <Header />
+    <Header history={props.history}/>
     <Switch>
       <Route exact path ='/' component={Home}/>
       <Route path = '/employees' component={Employees} />
@@ -37,9 +37,6 @@ function App(props) {
 
   return (
     <div className="App">
-      <div className="background">
-        <img src={require('../assets/icon/nkglIcon.png')}/>
-      </div>
       {display}
     </div>
   );

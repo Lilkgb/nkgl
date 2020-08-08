@@ -13,7 +13,7 @@ function Employees(props){
     const [addNewEmployee, setNewEmployee] = useState(false)
 
     if(addNewEmployee === false){
-        newEmployeeForm = <div><button onClick={() => setNewEmployee(true)} style={{"marginBottom": "20px"}}>Add New Employee</button></div>;
+        newEmployeeForm = null;
     } else if(addNewEmployee === true){
         newEmployeeForm = <AddEmployee closeEmployeeFormComponent={() => setNewEmployee(false)}/>
     }
@@ -41,8 +41,8 @@ function Employees(props){
 
     return(
         <div>
-            <h1>Employees!</h1>
             {newEmployeeForm}
+            <button onClick={() => setNewEmployee(true)} style={{"marginBottom": "20px"}}>Add New Employee</button>
             <div className="search">
                 <div className="item">
                     <label>Find: </label>

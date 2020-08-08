@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import * as firebase from 'firebase';
 import '../scss/Header.scss';
 
-function Header(){
+function Header(props){
 
   let display;
   let headerDisplay;
