@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter  } from 'react-router-dom';
 import * as firebase from 'firebase';
 import '../scss/Header.scss';
 
@@ -11,6 +11,7 @@ function Header(props){
 
   function signOut(){
     firebase.auth().signOut();
+    props.history.push('/');
   }
 
   function useWindowSize() {
@@ -95,4 +96,4 @@ function Header(props){
   )
 }
 
-export default Header;
+export default withRouter(Header);
