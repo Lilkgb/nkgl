@@ -42,8 +42,8 @@ function Employees(props){
     return(
         <div>
             {newEmployeeForm}
+            <button onClick={() => setNewEmployee(true)} className="goBack">Add New Employee</button>
             <div className="search">
-                <button onClick={() => setNewEmployee(true)} className="goBack">Add New Employee</button>
                 <div className="item">
                     <label>Find: </label>
                     <input

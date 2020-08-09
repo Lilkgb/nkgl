@@ -103,6 +103,7 @@ function EmployeeInfo(props){
                 </div>
                 <div>
                     <h3 className="title">Social Security</h3>
+                    <p>Not Displaying At this time</p>
                 </div>
             </div>
         </div>
