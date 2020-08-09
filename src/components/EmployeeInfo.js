@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import AddEmployeeImage from './AddEmployeeImage';
 import {connect} from 'react-redux';
 import Documents from './Documents';
+import EditEmployee from './EditEmployee';
 
 function EmployeeInfo(props){
 
@@ -11,12 +12,14 @@ function EmployeeInfo(props){
     let display;
     let employeeImageUpload;
     let docView;
+    let editEmployeeForm;
     
     
     const [seeSocial, setSeeSocial] = useState(false);
     const [uploadEmployeeImage, setUploadEmployeeImage] = useState(false);
     const [documents, setDocuments] = useState("info");
     const [information, setInformationState ] = useState("information");
+    const [editForm, setEditForm] = useState({state: false, info: null});
 
     for(let i=0; i < props.allEmployees.length; i++){
         if(props.allEmployees[i].employeeId === props.match.params.id){
@@ -64,7 +67,7 @@ function EmployeeInfo(props){
         if(documents === "info"){
             docView = <div className="docContainer">
             <div className="employeeInfoTop">
-                <button className="addBtn">Edit</button>
+                <button className="addBtn" onClick={() => setEditForm({state: true, info: employee})}>Edit</button>
                 <h3 className={employee.status}>{employee.status}</h3>
             </div>
             <div className="nameAndImg">
@@ -118,8 +121,15 @@ function EmployeeInfo(props){
         employeeImageUpload = null;
     }
 
+    if(editForm.state){
+        editEmployeeForm = <EditEmployee closeEditForm={() => setEditForm({state: false, info: null})} info={editForm.info}/>
+    } else {
+        editEmployeeForm = null;
+    }
+
     return (
         <div>
+            {editEmployeeForm}
             {employeeImageUpload}
             <button className="goBack" onClick={goBack}>Go Back</button>
             {display}

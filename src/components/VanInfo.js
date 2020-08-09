@@ -48,15 +48,16 @@ function VanInfo(props){
     }
 
     if(van){
-        display = <div className="vanInfoTop">
-            <div className="nextBack">
-                <button onClick={prevVan}> Back </button>
-                <h1>{van.name}</h1>
-                <button onClick={nextVan}> Next </button>
-            </div>
+        display = <div className="nextBackContainer">
+        <div className="nextBack">
+            <button onClick={prevVan}> Back </button>
+            <h1>{van.name}</h1>
+            <button onClick={nextVan}> Next </button>
         </div>
+    </div>
         if(documents === "info"){
             docView = <div className="docContainer">
+                <button className="addBtn">Edit</button>
                 <h1>Van Name: {van.name}</h1>
                 <h2>Vin: {van.vin}</h2>
                 <h3>Status: <span className={van.status}>{van.status}</span></h3>

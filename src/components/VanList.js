@@ -63,7 +63,7 @@ function VanList(props){
         type="text"
         value={name}
         onChange={e => setName(e.target.value)}
-        placeholder = "Find Van"
+        placeholder = "Van"
     />
     } else {
         searchInput = <input
@@ -71,15 +71,15 @@ function VanList(props){
         type="text"
         value={vin}
         onChange={e => setVin(e.target.value)}
-        placeholder = "Find Vin"
+        placeholder = "Vin"
     />
     }
 
     return(
         <div>
             {display}
-            <button onClick={() => setAddVanForm(true)}>Add New Van</button>
             <div className="search">
+                <button onClick={() => setAddVanForm(true)} className="goBack">Add New Van</button>
                 <div className="item">
                     <label>Search By: </label>
                     <select id="status" value={search} onChange={e => setSearch(e.target.value)}>
