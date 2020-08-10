@@ -47,29 +47,34 @@ function AddVan(props){
                     onChange={e => setName(e.target.value)}
                     placeholder = "Van Name"
                     />
+                    <br/>
                     <InputMask mask ="99/99/9999"
                     value={retrieveDate}
                     onChange={e => setRetrieveDate(e.target.value)}
                     placeholder = "Retrieve Date"
                     />
+                    <br/>
                     <input 
                     type="text"
                     value={vin}
                     onChange={e => setVin(e.target.value)}
                     placeholder = "Vin"
                     />
-                    <label for="status">Current Status:</label>
+                    <br/>
+                    <label for="status">Current Status: </label>
                     <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
                         <option value="Oil Change">Oil Change</option>
                         <option value="Body Shop">Body Shop</option>
                         <option value="Active">Active</option>
                     </select>
-                    <label for="status">Rental:</label>
+                    <br/>
+                    <label for="status">Rental: </label>
                     <select id="status" value={rental} onChange={e => setRental(e.target.value)}>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
-                    <button type="submit">Confirm</button>
+                    <br/>
+                    <button type="submit" style={{"margin-top": "10px"}}>Confirm</button>
                     {error}
                 </form>
             </div>

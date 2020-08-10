@@ -72,60 +72,73 @@ function AddEmployee(props){
                     onChange={e => setName(e.target.value)}
                     placeholder = "Employee Full Name"
                     />
+                    <br/>
                     <InputMask mask ="99/99/9999"
                     value={hireDate}
                     onChange={e => setHireDate(e.target.value)}
                     placeholder = "Hire Date"
                     />
+                    <br/>
                     <InputMask mask="999-99-9999" value={social1} onChange={e => setSocial1(e.target.value)}
                     placeholder = "Social Security"/>
+                    <br/>
                     <InputMask mask="999-99-9999" value={social2} onChange={e => setSocial2(e.target.value)}
                     placeholder = "Social Security"/>
+                    <br/>
                     <input 
                     type="email"
                     value={personalEmail}
                     onChange={e => setPersonalEmail(e.target.value)}
                     placeholder = "Personal Email"
                     />
+                    <br/>
                     <input 
                     type="email"
                     value={workEmail}
                     onChange={e => setWorkEmail(e.target.value)}
                     placeholder = "Work Email"
                     />
+                    <br/>
                     <input 
                     type="text"
                     value={address}
                     onChange={e => setAddress(e.target.value)}
                     placeholder = "Address"
                     />
+                    <br/>
                     <input 
                     type="text"
                     value={city}
                     onChange={e => setCity(e.target.value)}
                     placeholder = "City"
                     />
+                    <br/>
                     <input 
                     type="text"
                     value={state}
                     onChange={e => setState(e.target.value)}
                     placeholder = "State"
                     />
+                    <br/>
                     <input 
                     type="text"
                     value={zip}
                     onChange={e => setZip(e.target.value)}
                     placeholder = "Zip Code"
                     />
+                    <br/>
                     <InputMask mask="(999)999-9999" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} placeholder="Phone Number"/>
+                    <br/>
                     <InputMask mask="99/99/9999" value={dob} onChange={e => setDob(e.target.value)} placeholder="Date of Birth"/>
-                    <label for="status">Current Status:</label>
+                    <br/>
+                    <label for="status">Current Status: </label>
                     <select id="status" value={status} onChange={e => setStatus(e.target.value)}>
                         <option value="In Training">In Training</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Active">Active</option>
                     </select>
-                    <button type="submit">Confirm</button>
+                    <br/>
+                    <button type="submit" style={{"margin-top": "10px"}}>Confirm</button>
                     {error}
                 </form>
             </div>

@@ -52,6 +52,22 @@
     overflow: auto;
     padding: 10px;
     z-index: 1;
+    input{
+      width: 300px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        text-align: center;
+        border: 2px solid black;
+        transition: .3s linear;
+        &:focus{
+          outline: none;
+          border: none;
+          border-left: 2px solid black;
+          border-top: 2px solid black;
+          border-right: 2px solid black;
+          border-bottom: 2px solid teal;
+        }
+    }
     button{
       cursor: pointer;
     }
@@ -313,6 +329,7 @@
     padding: 15px;
     background-color: white;
     border: 2px solid black;
+    overflow: auto;
     form{
       max-width: 90vw;
       max-height: 80vh;
