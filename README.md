@@ -13,7 +13,6 @@ To begin open your console of choice and navigate to your desktop.
 2) navigate to the new react-template folder by running `cd nkgl`.
 3) run `npm install` or `npm i` to install all needed dependencies.
 4) depending your text editor run the command to open the files. I use VSC so it would be `code .`.
-*Note: The app in it's current state will not start when you run step 5 unless you have setup the .env for firebase.*
 5) make sure to have firebase tools installed by running `npm i -g firebase-tools`.
 
 #### To setup firebase.
