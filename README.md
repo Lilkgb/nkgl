@@ -35,14 +35,24 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID = xxxx
 13) click the **settings cog** in the top left next to **Project Overview** and click **Project Settings**.
 14) Scroll down to **Your apps** and under **firebase SDK snippet** you will see **CDN** and **Config**. Click **Config** and you will see your **firebaseConfig**
 15) replace all `x's` with information you recieve from https://www.firebase.com.
+16) select `.firebaserc` file below `.env` and rename the **default** with your project ID found in `.env`.
 *Note: Sometimes with the *firebaseConfig* will work with `"` like you see in the config given in your firebase console. If not then remove the `"` and it should work. Thats what I had to do.*
-16) back in your firebase console. Click **Authentication** on the left. And click on **Set up sign-in method**. Select **Email/Password** and **enable**.
-17) click on **Users** in the nav bar on top of the screen. Click **Add User** and put in what email and password you want to use.
-18) select **Database** on the left under **Authentication**. Click **Create Database** click on **start in test mode**. Click **next** then **Done**.
-19) next to **Databse** on the top it will say **Cloud Firestore** or **Realtime Database**. Make sure you are on **Realtime Database**
-20) click on the three vertical dots on the right next to the **+** and **-**. Then click **import JSON**. I have attached a starting JSON file you can import. Click on **Browse** and navigate to the project folder and click on **nkgl-14aoe-export.json** and import.
-21) run `firebase init` in terminal and go through the settings.
-18) run `npm run start` when you are ready to start a development server.
+17) back in your firebase console. Click **Authentication** on the left. And click on **Set up sign-in method**. Select **Email/Password** and **enable**.
+18) click on **Users** in the nav bar on top of the screen. Click **Add User** and put in what email and password you want to use.
+19) select **Database** on the left under **Authentication**. Click **Create Database** click on **start in test mode**. Click **next** then **Done**.
+20) next to **Databse** on the top it will say **Cloud Firestore** or **Realtime Database**. Make sure you are on **Realtime Database**
+21) click on the three vertical dots on the right next to the **+** and **-**. Then click **import JSON**. I have attached a starting JSON file you can import. Click on **Browse** and navigate to the project folder and click on **nkgl-14aoe-export.json** and import.
+22) run `firebase init` in terminal. Select what firebase features you would like. I used **Database** and **Hosting**. Click enter on **What file should be used for Databse Rules**. On **Hosting Setup** put **build**.
+23) run `npm run start` when you are ready to start a development server.
+
+#### Nothing shows under employees or vans
+24) go to your firebase console. Click **Database** on the left. Then make sure you on **Realtime Database** select **Rules** on the top. Make sure it looks like this `{
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}`
 
 ## Questions
 
