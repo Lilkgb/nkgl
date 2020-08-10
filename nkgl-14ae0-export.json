@@ -1,0 +1,110 @@
+{
+  "employees" : {
+    "069f0f3c-ae5a-44ec-8f40-3e95be1dd454" : {
+      "address" : "jskdjf 33",
+      "apt" : "null",
+      "dob" : "22/22/2222",
+      "docs" : {
+        "9b380f89-a8b4-4ffb-9d94-1678a0997a59" : {
+          "date" : 1591320655484,
+          "description" : "img",
+          "media" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/069f0f3c-ae5a-44ec-8f40-3e95be1dd454%2F67ec3ab5-9144-4c61-9081-e1b411f18a9f?alt=media&token=72302449-62db-419a-85b0-2f22b97d413f",
+          "type" : "image/jpeg"
+        },
+        "docStatus" : true
+      },
+      "employeeId" : "069f0f3c-ae5a-44ec-8f40-3e95be1dd454",
+      "hireDate" : "11/11/1111",
+      "name" : "JEFF FOSTER",
+      "personalEmail" : "none@none.com",
+      "phoneNumber" : "(111)111-1111",
+      "profileImg" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/069f0f3c-ae5a-44ec-8f40-3e95be1dd454%2F2A2D60C2-5032-4090-BFF7-910D8364CAF2.jpeg?alt=media&token=2e8c179e-8768-49ec-88d9-c45165f35979",
+      "social" : "MTExLTExLTExMTE%3D",
+      "state" : "wa",
+      "status" : "In Training",
+      "termDate" : "null",
+      "workEmail" : "none@none.com",
+      "zipCode" : "98604"
+    },
+    "c387107e-5b03-4907-a607-bcb30cd50578" : {
+      "address" : "023929kek ",
+      "apt" : "null",
+      "dob" : "11/11/1111",
+      "docs" : {
+        "docStatus" : false
+      },
+      "employeeId" : "c387107e-5b03-4907-a607-bcb30cd50578",
+      "hireDate" : "38/38/3838",
+      "name" : "Jane Martin",
+      "personalEmail" : "none@none.com",
+      "phoneNumber" : "(111)111-1111",
+      "profileImg" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/c387107e-5b03-4907-a607-bcb30cd50578%2Fblank-profile-picture-973460_640.png?alt=media&token=a36c3720-4985-4973-a2bc-dde04ee9e604",
+      "social" : "ODM4LTM4LTM4Mzg%3D",
+      "state" : "jwej",
+      "status" : "In Progress",
+      "termDate" : "null",
+      "workEmail" : "none@none.com",
+      "zipCode" : "545151"
+    }
+  },
+  "vanList" : {
+    "7217dc93-8577-4199-8509-62e2c2ca9fdc" : {
+      "damages" : {
+        "1bc48f3a-54fa-4dce-8120-88976e4cf61e" : {
+          "date" : 1590638716618,
+          "description" : "Daynanthony",
+          "media" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/7217dc93-8577-4199-8509-62e2c2ca9fdc%2Fb4e8808d-8258-4bd6-a317-3ff33308ff1a?alt=media&token=8a31a947-8652-41bf-afcb-62ff9ea16526",
+          "type" : "image/jpeg"
+        },
+        "2f0f0d90-5f76-4320-8b5a-c95c4de73fb1" : {
+          "date" : 1570632314583,
+          "description" : "Daily Video",
+          "media" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/7217dc93-8577-4199-8509-62e2c2ca9fdc%2FIMG_2723.MOV?alt=media&token=99bc3018-1f78-40ef-a1d1-de9f6e6eb22c",
+          "type" : "video/quicktime"
+        },
+        "3330609b-45bc-49da-833b-96c7a85f7caf" : {
+          "date" : 1590638327827,
+          "description" : "application pdf",
+          "media" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/Scannable%20Document%20on%20May%2029%2C%202020%20at%2012_02_24%20PM.pdf?alt=media&token=1156f149-066c-4765-920c-97d7103f9e96",
+          "type" : "application/pdf"
+        },
+        "4d1cd604-88d7-4b52-8e58-281b99475cd2" : {
+          "date" : 1590632849197,
+          "description" : "picture of jeff",
+          "media" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/7217dc93-8577-4199-8509-62e2c2ca9fdc%2FIMG_2698.jpg?alt=media&token=f3ab834a-0194-4882-9488-c060e01f892c",
+          "type" : "image/jpeg"
+        },
+        "damagesStatus" : true
+      },
+      "docs" : {
+        "1e918d9d-a7bd-47a9-8bc3-eb518fd56f1f" : {
+          "date" : 1591152426969,
+          "description" : "scannable application",
+          "media" : "https://firebasestorage.googleapis.com/v0/b/nkgl-14ae0.appspot.com/o/7217dc93-8577-4199-8509-62e2c2ca9fdc%2Fe9406cde-521a-400f-a05d-61df66647780?alt=media&token=e3aba8a0-e6e2-4383-a7a8-1e41821cb60c",
+          "type" : "application/pdf"
+        },
+        "docStatus" : true
+      },
+      "name" : "Van 3",
+      "retrieveDate" : "11/22/2222",
+      "status" : "Oil Change",
+      "termDate" : "null",
+      "vanId" : "7217dc93-8577-4199-8509-62e2c2ca9fdc",
+      "vin" : "23sd1114545"
+    },
+    "e8cb8832-ef79-48d7-becb-430b89f639d9" : {
+      "damages" : {
+        "damagesStatus" : false
+      },
+      "docs" : {
+        "docStatus" : false
+      },
+      "name" : "Van 1",
+      "retrieveDate" : "11/22/2222",
+      "status" : "Active",
+      "termDate" : "null",
+      "vanId" : "e8cb8832-ef79-48d7-becb-430b89f639d9",
+      "vin" : "2we168s5e"
+    }
+  }
+}

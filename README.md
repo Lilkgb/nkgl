@@ -13,8 +13,8 @@ To begin open your console of choice and navigate to your desktop.
 2) navigate to the new react-template folder by running `cd nkgl`.
 3) run `npm install` or `npm i` to install all needed dependencies.
 4) depending your text editor run the command to open the files. I use VSC so it would be `code .`.
-**Note: The app in it's current state will not start when you run step 5 unless you have setup the .env for firebase.**
-5) follow step below to set up firebase.
+*Note: The app in it's current state will not start when you run step 5 unless you have setup the .env for firebase.*
+5) make sure to have firebase tools installed by running `npm i -g firebase-tools`.
 
 #### To setup firebase.
 
@@ -29,15 +29,19 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID = xxxx
 `
 8) paste into `.env` file.
 9) proceed to https://www.firebase.com and login and go to your console which appears in the top left corner after you sign in.
-10) click on *Add Project* and name it however you would like and proceed through the steps. On *Google Analytics* I select *Use default account*.
-11) should land on project overview page. in the middle under *Get Started by adding firebase to your app* select the icon that looks like **</>**.
+10) click on **Add Project** and name it however you would like and proceed through the steps. On **Google Analytics** I select **Use default account**.
+11) should land on project overview page. in the middle under **Get Started by adding firebase to your app** select the icon that looks like **</>**.
 12) name it what ever you would like. I use the same name as step 10.
-13) click the *settings cog* in the top left next to *Project Overview* and click *Project Settings*.
-14) Scroll down to *Your apps* and under *firebase SDK snippet* you will see *CDN* and *Config*. Click *Config* and you will see your *firebaseConfig*
+13) click the **settings cog** in the top left next to **Project Overview** and click **Project Settings**.
+14) Scroll down to **Your apps** and under **firebase SDK snippet** you will see **CDN** and **Config**. Click **Config** and you will see your **firebaseConfig**
 15) replace all `x's` with information you recieve from https://www.firebase.com.
-**Note: Sometimes with the *firebaseConfig* will work with `"` like you see in the config given in your firebase console. If not then remove the `"` and it should work. Thats what I had to do.**
-16) back in your firebase console. Click *Authentication* on the left. And click on *Set up sign-in method*. Select *Email/Password* and *enable*.
-17) click on *Users* in the nav bar on top of the screen. Click *Add User* and put in what email and password you want to use.
+*Note: Sometimes with the *firebaseConfig* will work with `"` like you see in the config given in your firebase console. If not then remove the `"` and it should work. Thats what I had to do.*
+16) back in your firebase console. Click **Authentication** on the left. And click on **Set up sign-in method**. Select **Email/Password** and **enable**.
+17) click on **Users** in the nav bar on top of the screen. Click **Add User** and put in what email and password you want to use.
+18) select **Database** on the left under **Authentication**. Click **Create Database** click on **start in test mode**. Click **next** then **Done**.
+19) next to **Databse** on the top it will say **Cloud Firestore** or **Realtime Database**. Make sure you are on **Realtime Database**
+20) click on the three vertical dots on the right next to the **+** and **-**. Then click **import JSON**. I have attached a starting JSON file you can import. Click on **Browse** and navigate to the project folder and click on **nkgl-14aoe-export.json** and import.
+21) run `firebase init` in terminal and go through the settings.
 18) run `npm run start` when you are ready to start a development server.
 
 ## Questions
