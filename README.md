@@ -34,8 +34,10 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID = xxxx
 13) click the *settings cog* in the top left next to *Project Overview* and click *Project Settings*.
 14) Scroll down to *Your apps* and under *firebase SDK snippet* you will see *CDN* and *Config*. Click *Config* and you will see your *firebaseConfig*
 15) replace all `x's` with information you recieve from https://www.firebase.com.
-**Side note: Sometimes with the *firebaseConfig* will work with `"` like you see in the config given in your firebase console. If not then remove the `"` and it should work. Thats what i had to do. 
-16) uncomment line 2 and line 5 in `react-template/src/actions/index.js` to activate firebase in your project
+**Side note: Sometimes with the *firebaseConfig* will work with `"` like you see in the config given in your firebase console. If not then remove the `"` and it should work. Thats what i had to do.
+16) back in your firebase console. Click *Authentication* on the left. And click on *Set up sign-in method*. Select *Email/Password* and *enable*.
+17) click on *Users* in the nav bar on top of the screen. Click *Add User* and put in what email and password you want to use.
+16) uncomment line 2 and line 5 in `nkgl/src/actions/index.js` to activate firebase in your project
 
 ## Questions
 
