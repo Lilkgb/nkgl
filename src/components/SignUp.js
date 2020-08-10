@@ -36,8 +36,8 @@ function SignUp(props){
     // <h1>This is not yet avaliable for employees. If you are a admin or dispatch please contact Ryan McLean to make you a profile. <span onClick={props.closeSignUp} className="signUpClick">Click Here To Go Back!</span></h1>
 
     return(
-        <div className="signUpContainer">
-            <div className="signUpForm">
+        <div className="signInContainer">
+            <div className="signInForm">
                 <form onSubmit={signUpFunction}>
                     <input type="text" placeholder='Name' ref={value => {_name = value}}/><br />
                     <input type="email" placeholder='Email' ref={value => {_email = value}}/><br />
