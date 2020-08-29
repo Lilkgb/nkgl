@@ -10,6 +10,7 @@ import Employees from './Employees';
 import VanList from './VanList';
 import VanInfo from './VanInfo';
 import EmployeeInfo from './EmployeeInfo';
+import PayReport from './PayReport';
 
 function App(props) {
 
@@ -24,6 +25,7 @@ function App(props) {
       <Route path = '/employee/:id' component={EmployeeInfo} />
       <Route path = '/vanlist' component={VanList} />
       <Route path = '/van/:id' component={VanInfo} />
+      <Route path = '/payReport' component={PayReport} />
       <Route component={Error404}/>
     </Switch></div>
   } else if (props.authUser === false) {
