@@ -16,6 +16,12 @@ function PayReport(){
         return [year, month, day].join('-');
     }
 
+    function getDateOfWeek(w, y) {
+        let d = (1 + (w - 1) * 7);
+        let newDate = new Date(y, 0, d);
+        return formatDate(newDate);
+    }
+
     function getWeekNumber(d) {
         d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
         d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
@@ -24,9 +30,14 @@ function PayReport(){
         return weekNo;
     }
 
-    function changeInfo(e){
+    function changeDate(e){
         setDate(e)
         setWkNum(getWeekNumber(new Date(e)))
+    }
+
+    function changeWeek(e){
+        setWkNum(e)
+        setDate(getDateOfWeek(e, new Date(date).getFullYear()))
     }
 
     const [date, setDate] = useState(formatDate(new Date()));
@@ -40,8 +51,8 @@ function PayReport(){
             <div className="search">
                 <div className="item">
                     <label>Week Number: </label>
-                    <input type="number" value={wkNum} onChange={e => setWkNum(e.target.value)}/>
-                    <input type="date" id="status" value={date} onChange={e => changeInfo(e.target.value)} />
+                    <input type="number" value={wkNum} onChange={e => changeWeek(e.target.value)}/>
+                    <input type="date" id="status" value={date} onChange={e => changeDate(e.target.value)} />
                 </div>
             </div>
         </div>
