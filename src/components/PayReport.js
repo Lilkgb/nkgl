@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import moment from 'moment';
 
 function PayReport(){
 
     function formatDate(date) {
-        var d = new Date(date),
+        let d = new Date(date),
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
@@ -22,12 +23,11 @@ function PayReport(){
         return formatDate(newDate);
     }
 
-    function getWeekNumber(d) {
-        d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-        d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
-        var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
-        var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
-        return weekNo;
+    function getWeekNumber(e) {
+        const today = new Date(e);
+        const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+        const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
+        return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
     }
 
     function changeDate(e){
@@ -35,16 +35,27 @@ function PayReport(){
         setWkNum(getWeekNumber(new Date(e)))
     }
 
+    // moment().startOf('week').toDate(), moment().endOf('week').toDate()
+
     function changeWeek(e){
-        setWkNum(e)
-        setDate(getDateOfWeek(e, new Date(date).getFullYear()))
+        let currentYear = new Date(date).getFullYear()
+        let newDate = new Date(getDateOfWeek(e, currentYear))
+        let mDate = moment(getDateOfWeek(e, currentYear))
+        if(currentYear != newDate.getFullYear()){
+            let nwWkNum = getWeekNumber(newDate);
+            setWkNum(nwWkNum);
+            setDate(formatDate(newDate));
+        } else {
+            setWkNum(getWeekNumber(newDate))
+            setDate(formatDate(newDate))
+        }
+        let d = moment(mDate).startOf('week')
+        console.log(d._d)
+        console.log(newDate)
     }
 
     const [date, setDate] = useState(formatDate(new Date()));
     const [wkNum, setWkNum] = useState(getWeekNumber(new Date(date)));
-
-    console.log(date)
-    console.log(wkNum)
 
     return (
         <div>
