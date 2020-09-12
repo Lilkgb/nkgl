@@ -50,7 +50,7 @@ function VanInfo(props){
     if(van){
         display = <div className="nextBackContainer">
         <div className="nextBack">
-            <button onClick={prevVan}> Back </button>
+            <button onClick={prevVan}> Previous </button>
             <h1>{van.name}</h1>
             <button onClick={nextVan}> Next </button>
         </div>

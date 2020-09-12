@@ -59,7 +59,7 @@ function EmployeeInfo(props){
     if(employee){
         display = <div className="nextBackContainer">
             <div className="nextBack">
-                <button onClick={prevEmployee}> Back </button>
+                <button onClick={prevEmployee}> Previous </button>
                 <h1>{employee.name}</h1>
                 <button onClick={nextEmployee}> Next </button>
             </div>
