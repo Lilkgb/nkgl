@@ -33,6 +33,7 @@ function PayReport(){
     function changeDate(e){
         setDate(e)
         setWkNum(getWeekNumber(new Date(e)))
+        setWkDay(["daily"])
     }
 
     // moment().startOf('week').toDate(), moment().endOf('week').toDate();
@@ -41,21 +42,28 @@ function PayReport(){
         let currentYear = new Date(date).getFullYear()
         let newDate = new Date(getDateOfWeek(e, currentYear))
         let mDate = moment(getDateOfWeek(e, currentYear))
+        let startOfWk = new Date(moment(mDate).startOf('week'));
+        let arry = []
         if(currentYear != newDate.getFullYear()){
-            let nwWkNum = getWeekNumber(newDate);
-            setWkNum(nwWkNum);
-            setDate(formatDate(newDate));
+            setWkNum(getWeekNumber(newDate));
+            setDate(formatDate(startOfWk));
         } else {
             setWkNum(getWeekNumber(newDate))
-            setDate(formatDate(newDate))
+            setDate(formatDate(startOfWk))
         }
-        let d = moment(mDate).startOf('week')
-        console.log(d._d)
-        console.log(newDate)
+        for (let i=0; i<7; i++){
+            if(i===0){
+                arry.push(formatDate(startOfWk.setDate(startOfWk.getDate())));
+            } else {
+                arry.push(formatDate(startOfWk.setDate(startOfWk.getDate() + 1)));
+            }
+        }
+        setWkDay(arry)
     }
 
     const [date, setDate] = useState(formatDate(new Date()));
     const [wkNum, setWkNum] = useState(getWeekNumber(new Date(date)));
+    const [wkDay, setWkDay] = useState(["daily"])
 
     return (
         <div>
@@ -66,6 +74,15 @@ function PayReport(){
                     <input type="date" id="status" value={date} onChange={e => changeDate(e.target.value)} />
                 </div>
             </div>
+            {Object.keys(wkDay).map((days) => {
+                let day = wkDay[days];
+                if(day === "daily"){
+                    return <div>Showing {day}</div>
+                } else {
+                    day = moment(day).format("MM/Do/YY");
+                    return <div>Showing {day}</div>
+                }
+            })}
         </div>
     )
 }
