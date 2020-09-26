@@ -36,6 +36,13 @@ function PayReport(){
         setWkDay(["daily"])
     }
 
+    function currentDate(){
+        let today = new Date();
+        setDate(formatDate(new Date()))
+        setWkNum(getWeekNumber(new Date(today)))
+        setWkDay(["daily"])
+    }
+
     // moment().startOf('week').toDate(), moment().endOf('week').toDate();
 
     function changeWeek(e){
@@ -72,15 +79,16 @@ function PayReport(){
                     <label>Week Number: </label>
                     <input type="number" value={wkNum} onChange={e => changeWeek(e.target.value)}/>
                     <input type="date" id="status" value={date} onChange={e => changeDate(e.target.value)} />
+                    <button onClick={currentDate}>Today</button>
                 </div>
             </div>
             {Object.keys(wkDay).map((days) => {
                 let day = wkDay[days];
                 if(day === "daily"){
-                    return <div>Showing {day}</div>
+                    return <div key={days}>Showing {day}</div>
                 } else {
                     day = moment(day).format("MM/Do/YY");
-                    return <div>Showing {day}</div>
+                    return <div key={days}>Showing {day}</div>
                 }
             })}
         </div>
