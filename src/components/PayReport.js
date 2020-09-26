@@ -51,6 +51,7 @@ function PayReport(){
         let mDate = moment(getDateOfWeek(e, currentYear))
         let startOfWk = new Date(moment(mDate).startOf('week'));
         let arry = [];
+        let endOfYear = new Date(moment().endOf('year'));
         if(e === "" || e === undefined  || e === null){
             return setWkNum("")
         } else {
@@ -70,6 +71,8 @@ function PayReport(){
             }
             setWkDay(arry)
         }
+        console.log(formatDate(endOfYear))
+        console.log(getWeekNumber(endOfYear))
     }
 
     const [date, setDate] = useState(formatDate(new Date()));
@@ -81,7 +84,7 @@ function PayReport(){
             <div className="search">
                 <div className="item">
                     <label>Week Number: </label>
-                    <input type="number" pattern="\d*" value={wkNum} onChange={e => changeWeek(e.target.value)}/>
+                    <input type="number" pattern="\d*" max="99" value={wkNum} onChange={e => changeWeek(e.target.value)}/>
                     <input type="date" id="status" value={date} onChange={e => changeDate(e.target.value)} />
                     <button onClick={currentDate}>Today</button>
                 </div>
