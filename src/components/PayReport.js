@@ -50,22 +50,26 @@ function PayReport(){
         let newDate = new Date(getDateOfWeek(e, currentYear))
         let mDate = moment(getDateOfWeek(e, currentYear))
         let startOfWk = new Date(moment(mDate).startOf('week'));
-        let arry = []
-        if(currentYear != newDate.getFullYear()){
-            setWkNum(getWeekNumber(newDate));
-            setDate(formatDate(startOfWk));
+        let arry = [];
+        if(e === "" || e === undefined  || e === null){
+            return setWkNum("")
         } else {
-            setWkNum(getWeekNumber(newDate))
-            setDate(formatDate(startOfWk))
-        }
-        for (let i=0; i<7; i++){
-            if(i===0){
-                arry.push(formatDate(startOfWk.setDate(startOfWk.getDate())));
+            if(currentYear != newDate.getFullYear()){
+                setWkNum(getWeekNumber(newDate));
+                setDate(formatDate(startOfWk));
             } else {
-                arry.push(formatDate(startOfWk.setDate(startOfWk.getDate() + 1)));
+                setWkNum(getWeekNumber(newDate))
+                setDate(formatDate(startOfWk))
             }
+            for (let i=0; i<7; i++){
+                if(i===0){
+                    arry.push(formatDate(startOfWk.setDate(startOfWk.getDate())));
+                } else {
+                    arry.push(formatDate(startOfWk.setDate(startOfWk.getDate() + 1)));
+                }
+            }
+            setWkDay(arry)
         }
-        setWkDay(arry)
     }
 
     const [date, setDate] = useState(formatDate(new Date()));
@@ -77,7 +81,7 @@ function PayReport(){
             <div className="search">
                 <div className="item">
                     <label>Week Number: </label>
-                    <input type="number" value={wkNum} onChange={e => changeWeek(e.target.value)}/>
+                    <input type="number" pattern="\d*" value={wkNum} onChange={e => changeWeek(e.target.value)}/>
                     <input type="date" id="status" value={date} onChange={e => changeDate(e.target.value)} />
                     <button onClick={currentDate}>Today</button>
                 </div>
