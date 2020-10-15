@@ -83,13 +83,12 @@ function PayReport(props){
     const [newPayReport, setNewPayReport] = useState([]);
     const [daName, setDaName] = useState("")
 
+
     function pushToNewPayReport(e){
         e.preventDefault()
         console.log(daName)
         setDaName("")
     }
-
-    console.log(daName)
 
     return (
         <div>
@@ -105,34 +104,13 @@ function PayReport(props){
                 let day = wkDay[days];
                 if(day === "daily"){
                     return <div>
-                        <h1>Showing {date}</h1>
-                        <div className="payReportList">
-                    <div>
-                    <form onSubmit={pushToNewPayReport}>
-                        <input placeholder="employee" value={daName} onChange={e => setDaName(e.target.value)} list="exampleList"/> 
-                        <datalist id="exampleList">
-                            {Object.keys(props.allEmployees).map((employees) => {
-                                let employee = props.allEmployees[employees];
-                                return <option>{employee.name}</option>
-                            })}
-                        </datalist>
-                        <button type="submit">Add</button>
-                    </form>
-                        <p>information</p>
-                    </div>
-                </div>
+                        <h1>daily</h1>
                 </div>
                 } else {
                     day = moment(day).format("MM/Do/YY");
                     return <div>
                     <h1>Showing {day}</h1>
-                        <div className="payReportList">
-                    <div>
-                        <p>Employee Name</p>
-                        <p>information</p>
-                    </div>
                 </div>
-            </div>
                 }
             })}
         </div>
