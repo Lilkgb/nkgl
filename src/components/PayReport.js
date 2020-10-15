@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import moment from 'moment';
+import {connect} from 'react-redux';
 
-function PayReport(){
+
+function PayReport(props){
 
     function formatDate(date) {
         let d = new Date(date),
@@ -78,6 +80,16 @@ function PayReport(){
     const [date, setDate] = useState(formatDate(new Date()));
     const [wkNum, setWkNum] = useState(getWeekNumber(new Date(date)));
     const [wkDay, setWkDay] = useState(["daily"])
+    const [newPayReport, setNewPayReport] = useState([]);
+    const [daName, setDaName] = useState("")
+
+    function pushToNewPayReport(e){
+        e.preventDefault()
+        console.log(daName)
+        setDaName("")
+    }
+
+    console.log(daName)
 
     return (
         <div>
@@ -92,14 +104,43 @@ function PayReport(){
             {Object.keys(wkDay).map((days) => {
                 let day = wkDay[days];
                 if(day === "daily"){
-                    return <div key={days}>Showing {day}</div>
+                    return <div>
+                        <h1>Showing {date}</h1>
+                        <div className="payReportList">
+                    <div>
+                    <form onSubmit={pushToNewPayReport}>
+                        <input placeholder="employee" value={daName} onChange={e => setDaName(e.target.value)} list="exampleList"/> 
+                        <datalist id="exampleList">
+                            {Object.keys(props.allEmployees).map((employees) => {
+                                let employee = props.allEmployees[employees];
+                                return <option>{employee.name}</option>
+                            })}
+                        </datalist>
+                        <button type="submit">Add</button>
+                    </form>
+                        <p>information</p>
+                    </div>
+                </div>
+                </div>
                 } else {
                     day = moment(day).format("MM/Do/YY");
-                    return <div key={days}>Showing {day}</div>
+                    return <div>
+                    <h1>Showing {day}</h1>
+                        <div className="payReportList">
+                    <div>
+                        <p>Employee Name</p>
+                        <p>information</p>
+                    </div>
+                </div>
+            </div>
                 }
             })}
         </div>
     )
 }
 
-export default PayReport;
+const mapStateToProps = state => ({
+    allEmployees: state.employeesState
+  })
+
+export default connect(mapStateToProps)(PayReport);
